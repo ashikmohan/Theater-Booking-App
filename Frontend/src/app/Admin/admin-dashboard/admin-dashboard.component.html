@@ -1,23 +1,112 @@
+<!-- <div>
 <nav class="navbar navbar-expand-lg ">
-    <div class="container-fluid">
-     <img src="/assets/logo1-removebg-preview.png" alt="" height="50px" width="80px">
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="" id="navbarNav">
-        <ul class="navbar-nav">
-          
-          
-          <li class="nav-item">
-            <a class="nav-link active" routerLink="/">LogOut</a>
-          </li>
-          
-        </ul>
-      </div>
+  <div class="container-fluid">
+   <img src="/assets/logo1-removebg-preview.png" alt="" height="50px" width="80px">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/AdminDashboard/addmovies">Add Movies</a>
+        </li>
+        
+        <li class="nav-item">
+          <a class="nav-link active" routerLink="/">LogOut</a>
+        </li>
+        
+      </ul>
     </div>
-  </nav>
+  </div>
+</nav>
+</div>
+
+<div>
+
+<router-outlet></router-outlet>
 
 
-
-
+</div>
+<div>
 <app-footer></app-footer>
+</div> -->
+
+
+
+
+<div class="container-fluid">
+  <div class="row flex-nowrap">
+      <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0 bg-dark bg-gradient">
+          <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+              <div class="d-flex  pb-3 mb-md-0 me-md-auto text-white text-decoration-none ">
+                  <div class="flex-row">
+                    <br>
+                      <a href="#" class="nav-link">
+                          <!-- <i class="bi bi-house" style="font-size:1rem;color:white"></i> -->
+                          &nbsp; &nbsp; &nbsp; &nbsp;<img src="/assets/MovieBox__1_-removebg-preview.png" alt="" height="50px" width="80px">
+                      </a>                           
+                  </div>
+              </div>
+              <div class="row py-3">
+                  <a routerLink="/AdminDashboard" style="text-decoration:none">
+                      <span class="fs-6 font-weight-semi-bold d-sm-inline">
+                          <span id="facultyName">ADMIN</span> <!--Name of the user-->
+                          DASHBOARD</span>
+                  </a>
+              </div>
+              <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                  <li class="nav-item active">
+                      <a routerLink="/AdminDashboard/moviefetched" class="nav-link align-middle text-light px-0">
+                        <button style="background-color: transparent;border:none;padding:2px">
+                            <i class='fa fa-film' style="font-size:1.3rem;color:white"></i>
+                        </button>
+                         <span id="reqform" class="ms-1 d-none d-sm-inline">&nbsp;Movies</span>
+                      </a>
+                  </li>
+                  <li>
+                      <a routerLink="/dashboard/curriculum-list" data-bs-toggle="collapse"
+                       class="nav-link px-0 align-middle text-light">                                
+                       <button style="background-color: transparent;border:none;padding:2px">
+                        <i class='fas fa-book-reader' style="font-size:1.3rem;color:white"></i>
+                    </button>
+                        <span class="ms-1 d-none d-sm-inline">&nbsp;</span> </a>
+                      <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                          <li class="ml-2">
+                              <a routerLink="/dashboard/approve" class="nav-link px-0"> <span class="d-none d-sm-inline text-light" >
+                                <button style="background-color: transparent;border:none;padding:2px">
+                                    <i class="fa fa-check" style="font-size:1.2rem;color:white"></i>
+                                </button>
+                                &nbsp; Approved</span> </a>
+                          </li>
+                          <li class="ml-2">
+                              <a routerLink="/dashboard/pending" class="nav-link px-0"> <span class="d-none d-sm-inline text-light" >
+                                <button style="background-color: transparent;border:none;padding:2px">
+                                    <i class="fa fa-spinner fa-spin" style="font-size:1.2rem;color:white"></i>
+                                </button> &nbsp; Pending</span> </a>
+                          </li>
+                      </ul>
+                  </li>
+              </ul>
+     
+                  <div class="signout">
+                    <a routerLink="/" class="d-flex align-items-center text-white text-decoration-none"  >
+                        <span class="d-none d-sm-inline mx-1 "><button style="background-color: transparent;"><i class="bi bi-box-arrow-left" style="font-size: 1.3rem; color: white"></i></button> Sign Out</span>
+                    </a>
+                  
+                </div>
+            <br><br>
+          </div>
+          
+      </div>
+      <div class="col py-3 text-center">
+          <router-outlet></router-outlet>
+      </div>
+      <br>
+  </div>
+<app-footer></app-footer>
+</div>
+
+
+
+
+

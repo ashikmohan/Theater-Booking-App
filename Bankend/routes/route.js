@@ -1,11 +1,32 @@
 const express=require('express');
 const router=express.Router();
+const bodyParser = require('body-parser');
+const path = require('path');
+const fs = require('fs');
+
 
 
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
 
-const {usersSignUpData}=require('../model/schema');
+router.use(bodyParser.urlencoded({ extended: true }));
+router.use(bodyParser.json());
+
+const multer = require('multer');
+// const storage = multer.memoryStorage();
+const storage = multer.diskStorage({
+    destination: function (req, file, cb) {
+      cb(null, 'uploads');
+    },
+    filename: function (req, file, cb) {
+      cb(null, file.fieldname + '-' + Date.now());
+    }
+  });
+
+const upload = multer({ storage: storage });
+
+
+const {usersSignUpData,AddmoviesSchema}=require('../model/schema');
 
 // signUp
 
@@ -48,9 +69,7 @@ router.post('/login',(req,res)=>{
 
 });
 
-
-
-
+// add movies
 
 
 module.exports=router;

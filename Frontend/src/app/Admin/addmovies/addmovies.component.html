@@ -1,0 +1,48 @@
+<div class="form-container">
+    <h2 class="text-primary">Add Movies </h2>
+    <form>
+        <div class="form-group">
+            <label for="moviename">Movie Name:</label>
+            <input type="text" id="moviename" name="moviename" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="category">Category:</label>
+            <select id="category" name="category" ngModel required>
+                <option value="UA">UA</option>
+                <option value="A">A</option>
+                <option value="PG">PG</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="languages">Languages:</label>
+            <select id="languages" name="languages" ngModel required>
+                <option value="Malayalam">Malayalam</option>
+                <option value="Hindi">Hindi</option>
+                <option value="Tamil">Tamil</option>
+                <option value="Telugu">Telugu</option>
+                <option value="English">English</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="cast">Cast:</label>
+            <input type="text" id="cast" name="cast" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="rates">Rates:</label>
+            <input type="number" id="rates" name="rates" ngModel required>
+        </div>
+        <div class="form-group">
+            <label for="seats">Seats:</label>
+            <input type="number" id="seats" name="seats" ngModel required>
+        </div>
+        <!-- <div class="form-group">
+            <label for="image">Image:</label>
+            <input type="file" id="image" name="image" ngModel required >
+        </div> -->
+        <button type="submit" class="submit-button">Submit</button>
+    </form>
+</div>

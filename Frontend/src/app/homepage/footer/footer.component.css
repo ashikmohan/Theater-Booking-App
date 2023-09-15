@@ -1,6 +1,13 @@
-footer {
+/* footer {
     background-color: #333;
     color: #fff;
     text-align: center;
     padding: 20px 0;
+    position:fixed;
+   
+} */
+.footer{
+    position:fixed;
+    bottom:0;
+    padding: 0;
 }

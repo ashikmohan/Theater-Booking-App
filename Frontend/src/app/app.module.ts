@@ -9,11 +9,16 @@ import { BodyComponent } from './homepage/body/body.component';
 import { FooterComponent } from './homepage/footer/footer.component';
 import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthserveService } from './authserve.service';
 import { HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { UserdashboardComponent } from './User/userdashboard/userdashboard.component';
+import { NavdComponent } from './navd/navd.component';
+import { AddmoviesComponent } from './Admin/addmovies/addmovies.component';
+import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.component';
+import { AddmovieService } from './addmovie.service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,20 +29,25 @@ import { UserdashboardComponent } from './User/userdashboard/userdashboard.compo
     LoginComponent,
     SignupComponent,
     AdminDashboardComponent,
-    UserdashboardComponent
+    UserdashboardComponent,
+    NavdComponent,
+    AddmoviesComponent,
+    MoviefetchedComponent,
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule
     
     
     
   
 
   ],
-  providers: [AuthserveService],
+  providers: [AuthserveService,AddmovieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
