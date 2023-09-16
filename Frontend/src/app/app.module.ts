@@ -18,6 +18,8 @@ import { NavdComponent } from './navd/navd.component';
 import { AddmoviesComponent } from './Admin/addmovies/addmovies.component';
 import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.component';
 import { AddmovieService } from './addmovie.service';
+import { CommonModule } from '@angular/common';
+import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { AddmovieService } from './addmovie.service';
     NavdComponent,
     AddmoviesComponent,
     MoviefetchedComponent,
+    UsermoviefetchedComponent,
     
   ],
   imports: [
@@ -40,7 +43,8 @@ import { AddmovieService } from './addmovie.service';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    CommonModule
     
     
     

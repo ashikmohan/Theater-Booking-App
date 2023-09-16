@@ -13,17 +13,10 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 const multer = require('multer');
-// const storage = multer.memoryStorage();
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-      cb(null, 'uploads');
-    },
-    filename: function (req, file, cb) {
-      cb(null, file.fieldname + '-' + Date.now());
-    }
-  });
+const storage = multer.memoryStorage();
 
-const upload = multer({ storage: storage });
+const upload=multer({storage:storage})
+
 
 
 const {usersSignUpData,AddmoviesSchema}=require('../model/schema');
@@ -71,5 +64,51 @@ router.post('/login',(req,res)=>{
 
 // add movies
 
+router.post('/addmovies',upload.single('image'),async(req,res)=>{
+    try {
+        const {
+            moviename,
+            category,
+            languages,
+            cast,
+            description,
+            rates,
+            seats,
+        } = req.body;
+
+        // Create a new instance of the Mongoose model
+        const movie = new AddmoviesSchema({
+            moviename,
+            category,
+            languages,
+            cast,
+            description,
+            rates,
+            seats,
+            image: {
+                data: Buffer.from(req.file.buffer) , // Store the image data as binary
+                contentType: req.file.mimetype, // Store the content type
+            },
+        });
+
+        // Save the movie data to MongoDB
+        await movie.save();
+
+        res.status(201).json({ message: 'Movie added successfully' });
+    } catch (error) {
+        console.error('Error adding movie:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+});
+
+// fetch the data to dashboard
+router.get('/moviefetched',async (req,res)=>{
+    try{
+        const movies=await AddmoviesSchema.find();
+        res.status(200).json(movies);
+    }catch(err){
+        res.status(500).json({error:'Failed to fetch image'});
+    }
+})
 
 module.exports=router;

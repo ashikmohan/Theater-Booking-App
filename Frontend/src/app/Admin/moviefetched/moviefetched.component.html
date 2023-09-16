@@ -1,6 +1,23 @@
 <div class="movie-card">
-   
-    <a routerLink="/AdminDashboard/moviefetched/addmovies"><button class="add-movie-button">Add Movie</button></a>
+  <a routerLink="/AdminDashboard/moviefetched/addmovies">
+    <button class="add-movie-button">Add Movie</button>
+  </a>
 </div>
+
+
+
+  <div class="container mt-5 px-2">
+    <div class="row">
+     <div class="col-3" *ngFor="let movie of list ">
+ 
+         <div class="card " >
+             <div class="card-body">
+              <img [src]="movie.image" class="card-img-top" alt="...">
+              <h5>{{movie.moviename}}</h5>
+             </div>
+           </div>
+     </div>
+
+
 
 <router-outlet></router-outlet>

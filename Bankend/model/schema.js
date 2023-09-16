@@ -54,10 +54,10 @@ const addMoviesSchema=mongoose.Schema({
         type:Number,
         required:true
     },
-    // image:{
-    //     data: Buffer, // Store image as binary data
-    //     contentType: String
-    // }
+    image:{
+        data: Buffer, // Store image as binary data
+        contentType: String
+    }
 
 })
 

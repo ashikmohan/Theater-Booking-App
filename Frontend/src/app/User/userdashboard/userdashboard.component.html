@@ -14,7 +14,7 @@
                   </div>
               </div>
               <div class="row py-3">
-                  <a routerLink="/dashboard" style="text-decoration:none">
+                  <a routerLink="/UserDashboard" style="text-decoration:none">
                       <span class="fs-6 font-weight-semi-bold d-sm-inline">
                           <span id="facultyName">USER</span> <!--Name of the user-->
                           DASHBOARD</span>
@@ -22,11 +22,11 @@
               </div>
               <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                   <li class="nav-item">
-                      <a routerLink="/dashboard/requirement-list" class="nav-link align-middle text-light px-0">
+                      <a routerLink="/UserDashboard/usermoviefetched" class="nav-link align-middle text-light px-0">
                         <button style="background-color: transparent;border:none;padding:2px">
                             <i class='bi bi-ui-checks' style="font-size:1.3rem;color:white"></i>
                         </button>
-                         <span id="reqform" class="ms-1 d-none d-sm-inline">&nbsp;Requirement Form</span>
+                         <span id="reqform" class="ms-1 d-none d-sm-inline">&nbsp;Movies</span>
                       </a>
                   </li>
                   <li>
@@ -35,20 +35,20 @@
                        <button style="background-color: transparent;border:none;padding:2px">
                         <i class='fas fa-book-reader' style="font-size:1.3rem;color:white"></i>
                     </button>
-                        <span class="ms-1 d-none d-sm-inline">&nbsp; All Curriculums</span> </a>
+                        <span class="ms-1 d-none d-sm-inline">&nbsp; </span> </a>
                       <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
                           <li class="ml-2">
                               <a routerLink="/dashboard/approve" class="nav-link px-0"> <span class="d-none d-sm-inline text-light" >
                                 <button style="background-color: transparent;border:none;padding:2px">
                                     <i class="fa fa-check" style="font-size:1.2rem;color:white"></i>
                                 </button>
-                                &nbsp; Approved</span> </a>
+                                &nbsp; </span> </a>
                           </li>
                           <li class="ml-2">
                               <a routerLink="/dashboard/pending" class="nav-link px-0"> <span class="d-none d-sm-inline text-light" >
                                 <button style="background-color: transparent;border:none;padding:2px">
                                     <i class="fa fa-spinner fa-spin" style="font-size:1.2rem;color:white"></i>
-                                </button> &nbsp; Pending</span> </a>
+                                </button> &nbsp; </span> </a>
                           </li>
                       </ul>
                   </li>

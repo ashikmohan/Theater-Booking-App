@@ -1,0 +1,75 @@
+/* styles.css */
+
+/* Add a CSS animation for the movie card */
+@keyframes fadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  .movie-card {
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 0.5s ease; /* Apply the animation to the movie-card */
+  }
+  
+  .add-movie-button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 16px;
+  }
+  
+  .add-movie-button:hover {
+    background-color: #0056b3;
+  }
+  
+  .container {
+    
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+    height: 80%;
+    padding: 10;
+    
+
+  }
+  
+  .card {
+    width: 100%;
+    margin-bottom: 30px;
+    border: none;
+    background: none;
+    height: 350px;
+    width: 250px;
+    margin-bottom: 100px;
+  }
+  
+  .card-body {
+    padding: 0;
+  }
+  
+  .card-img-top {
+    width: 100%;
+    height: auto;
+  }
+  
+  /* Optional: Add additional styling to the card if needed */
+  .card {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+  }
+  
+  .card:hover {
+    transform: scale(1.05);
+  }
+  

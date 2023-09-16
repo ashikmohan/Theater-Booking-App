@@ -7,6 +7,7 @@ import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard
 import { UserdashboardComponent } from './User/userdashboard/userdashboard.component';
 import { AddmoviesComponent } from './Admin/addmovies/addmovies.component';
 import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.component';
+import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
 
 const routes: Routes = [
   {path:'',component:HomepageComponent},
@@ -15,13 +16,21 @@ const routes: Routes = [
   // Admin Dashboard
   {path:'AdminDashboard',component:AdminDashboardComponent,
   children:[{path:'moviefetched',component:MoviefetchedComponent},
-    {path:'moviefetched/addmovies',component:AddmoviesComponent}]
+    {path:'moviefetched/addmovies',component:AddmoviesComponent},
+  
+    { path: '', redirectTo: 'moviefetched', pathMatch: 'full' }
+  ]
 
+    
 }
 
   ,
   // User Dashboard
-  {path:'UserDashboard',component:UserdashboardComponent}
+  {path:'UserDashboard',component:UserdashboardComponent,
+children:[{path:'usermoviefetched',component:UsermoviefetchedComponent},
+
+{ path: '', redirectTo: 'usermoviefetched', pathMatch: 'full' }
+]}
 ];
 
 @NgModule({
