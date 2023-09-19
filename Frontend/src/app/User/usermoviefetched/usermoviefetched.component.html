@@ -1,15 +1,22 @@
 
 <div class="container mt-5 px-2">
     <div class="row">
-     <div class="col-3" *ngFor="let movie of list ">
- 
-         <div class="card " >
+     <div class="col-3" *ngFor="let movie of list " >
+      
+             <div class="card">
+              <a class="text-decoration-none text-dark" [routerLink]="['/UserDashboard/moviedetails', movie._id]">
              <div class="card-body">
               <img [src]="movie.image" class="card-img-top" alt="...">
-              <h5>{{movie.moviename}}</h5>
+              <h6>{{movie.moviename}}</h6>
+              <h6>{{movie.category}} , {{movie.languages}}</h6>
+              
              
              </div>
+            </a>
            </div>
+          
      </div>
+    </div>
+</div>
 
      <router-outlet></router-outlet>

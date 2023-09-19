@@ -109,6 +109,24 @@ router.get('/moviefetched',async (req,res)=>{
     }catch(err){
         res.status(500).json({error:'Failed to fetch image'});
     }
-})
+});
+
+// get the movie details by id
+// Route to fetch movie details by ID
+
+router.get('/moviedetails/:id', async (req, res) => {
+    try {
+      let id = req.params.id;
+      let data = await AddmoviesSchema.findById(id);
+      res.set('Cache-Control', 'no-store');
+      console.log(data);
+      res.json({ data: data, status: 200 }).status(200);
+    } catch (error) {
+      res.status(400).json({ message: 'GET request CANNOT be completed' });
+    }
+  });
+  
+
+
 
 module.exports=router;

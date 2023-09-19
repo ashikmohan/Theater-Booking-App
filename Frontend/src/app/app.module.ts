@@ -20,6 +20,8 @@ import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.compone
 import { AddmovieService } from './addmovie.service';
 import { CommonModule } from '@angular/common';
 import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
+import { MoviedetailsComponent } from './User/moviedetails/moviedetails.component';
+import { MoviefetchingService } from './moviefetching.service';
 
 @NgModule({
   declarations: [
@@ -36,6 +38,7 @@ import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetc
     AddmoviesComponent,
     MoviefetchedComponent,
     UsermoviefetchedComponent,
+    MoviedetailsComponent,
     
   ],
   imports: [
@@ -51,7 +54,7 @@ import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetc
   
 
   ],
-  providers: [AuthserveService,AddmovieService],
+  providers: [AuthserveService,AddmovieService,MoviefetchingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

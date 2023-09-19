@@ -52,10 +52,12 @@
     height: 350px;
     width: 250px;
     margin-bottom: 100px;
+    text-decoration: none;
   }
   
   .card-body {
     padding: 0;
+    text-decoration: none;
   }
   
   .card-img-top {

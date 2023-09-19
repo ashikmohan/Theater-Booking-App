@@ -19,5 +19,5 @@ export class AddmovieService {
     return this.http.get<any[]>(`${this.apiUrl}/moviefetched`);
 
   }
-  
+
 }

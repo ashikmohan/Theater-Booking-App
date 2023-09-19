@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { AddmovieService } from 'src/app/addmovie.service';
+import { MoviefetchingService } from 'src/app/moviefetching.service';
 
 @Component({
   selector: 'app-usermoviefetched',
@@ -9,7 +10,8 @@ import { AddmovieService } from 'src/app/addmovie.service';
 })
 export class UsermoviefetchedComponent {
   list:any[]=[];
-  constructor(private router:Router,private addmovie:AddmovieService){}
+
+  constructor(private router:Router,private addmovie:AddmovieService,private route: ActivatedRoute,private fetching:MoviefetchingService){}
   ngOnInit(){
     this.addmovie.getMovies().subscribe((res:any[])=>{
       console.log('Movies fetched:', res);
@@ -20,7 +22,8 @@ export class UsermoviefetchedComponent {
           ...movie,
           image: `data:${movie.image.contentType};base64,${imageBase64}`
         };
-      });
+      }
+      );
       
       // console.log('List of movies:', this.list);
       // console.log('Image Data URL:', this.list[0].image);
@@ -41,8 +44,6 @@ export class UsermoviefetchedComponent {
     });
     return btoa(base64);
   }
-
-
-
+ 
 
 }

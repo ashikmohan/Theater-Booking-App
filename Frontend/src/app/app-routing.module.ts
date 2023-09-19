@@ -8,31 +8,32 @@ import { UserdashboardComponent } from './User/userdashboard/userdashboard.compo
 import { AddmoviesComponent } from './Admin/addmovies/addmovies.component';
 import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.component';
 import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
-
+import { MoviedetailsComponent } from './User/moviedetails/moviedetails.component';
 const routes: Routes = [
-  {path:'',component:HomepageComponent},
-  {path:'login',component:LoginComponent},
-  {path:'signup',component:SignupComponent},
-  // Admin Dashboard
-  {path:'AdminDashboard',component:AdminDashboardComponent,
-  children:[{path:'moviefetched',component:MoviefetchedComponent},
-    {path:'moviefetched/addmovies',component:AddmoviesComponent},
-  
-    { path: '', redirectTo: 'moviefetched', pathMatch: 'full' }
-  ]
-
-    
-}
-
-  ,
+  { path: '', component: HomepageComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'signup', component: SignupComponent },
   // User Dashboard
-  {path:'UserDashboard',component:UserdashboardComponent,
-children:[{path:'usermoviefetched',component:UsermoviefetchedComponent},
-
-{ path: '', redirectTo: 'usermoviefetched', pathMatch: 'full' }
-]}
+  {
+    path: 'UserDashboard',
+    component: UserdashboardComponent,
+    children: [
+      { path: 'usermoviefetched', component: UsermoviefetchedComponent },
+      { path: 'moviedetails/:id', component: MoviedetailsComponent },
+      { path: '', redirectTo: 'usermoviefetched', pathMatch: 'full' },
+    ],
+  },
+  // Admin Dashboard
+  {
+    path: 'AdminDashboard',
+    component: AdminDashboardComponent,
+    children: [
+      { path: 'moviefetched', component: MoviefetchedComponent },
+      { path: 'moviefetched/addmovies', component: AddmoviesComponent },
+      { path: '', redirectTo: 'moviefetched', pathMatch: 'full' },
+    ],
+  },
 ];
-
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
