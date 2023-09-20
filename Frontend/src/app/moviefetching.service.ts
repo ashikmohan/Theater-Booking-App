@@ -15,5 +15,11 @@ export class MoviefetchingService {
     return this.http.get<any>(`${this.apiUrl}/moviedetails/${id}`);
 }
 
- 
+ editdetails(updated:any,id:any){
+  return this.http.put(`${this.apiUrl}/editdetails/${id}`,updated)
+ }
+
+ deletemovie(id:any){
+return this.http.delete(`${this.apiUrl}/deletemovies/${id}`)
+ }
 }

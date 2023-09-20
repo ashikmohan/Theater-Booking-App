@@ -72,4 +72,13 @@
   .card:hover {
     transform: scale(1.05);
   }
-  
+  .edit{
+    float: left;
+    margin-left: 10px;
+    
+  }
+ .delete{
+    float: right;
+    margin-right: 10px;
+    color: red;
+  }

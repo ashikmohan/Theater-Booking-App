@@ -9,6 +9,7 @@ import { AddmoviesComponent } from './Admin/addmovies/addmovies.component';
 import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.component';
 import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
 import { MoviedetailsComponent } from './User/moviedetails/moviedetails.component';
+import { EditComponent } from './Admin/edit/edit.component';
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
@@ -29,7 +30,7 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children: [
       { path: 'moviefetched', component: MoviefetchedComponent },
-      { path: 'moviefetched/addmovies', component: AddmoviesComponent },
+      { path: 'moviefetched/addmovies', component: AddmoviesComponent },{path:'editdetails/:id',component:EditComponent},
       { path: '', redirectTo: 'moviefetched', pathMatch: 'full' },
     ],
   },

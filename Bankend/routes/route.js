@@ -126,7 +126,35 @@ router.get('/moviedetails/:id', async (req, res) => {
     }
   });
   
+// edit the movie details buy admin
 
+router.put("/editdetails/:id",async (req,res)=>{                               
+    try{
+        let id = req.params.id;
+        let updateData = {$set: req.body};
 
+        const updated = await AddmoviesSchema.findByIdAndUpdate(id,updateData);  
+        console.log(updated)
+        res.set('Cache-Control', 'no-store');                            
+        res.json({message:"UPDATE Successful",status:200});                                                                          
+    }catch(error){
+        res.status(400).json("Cannot /UPDATE data");                            
+        console.log(`Cannot POST data`);                               
+    }
+})
+
+// delete a movie
+
+router.delete("/deletemovies/:id",async (req,res)=>{
+    try {
+        let id = req.params.id;
+        console.log(id);  
+        let data = await AddmoviesSchema.findByIdAndRemove(id);
+        res.set('Cache-Control', 'no-store');      
+        res.json({data:data,status:200}).status(201);
+    } catch (error) {
+        res.status(400).json({ message: "DELETE request CANNOT be completed" });       
+    }
+})
 
 module.exports=router;

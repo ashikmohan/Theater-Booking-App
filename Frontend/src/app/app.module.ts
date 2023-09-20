@@ -22,6 +22,7 @@ import { CommonModule } from '@angular/common';
 import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
 import { MoviedetailsComponent } from './User/moviedetails/moviedetails.component';
 import { MoviefetchingService } from './moviefetching.service';
+import { EditComponent } from './Admin/edit/edit.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { MoviefetchingService } from './moviefetching.service';
     MoviefetchedComponent,
     UsermoviefetchedComponent,
     MoviedetailsComponent,
+    EditComponent,
     
   ],
   imports: [

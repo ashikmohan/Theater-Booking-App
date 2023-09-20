@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddmovieService } from 'src/app/addmovie.service';
+import { MoviefetchingService } from 'src/app/moviefetching.service';
 
 @Component({
   selector: 'app-moviefetched',
@@ -10,7 +11,7 @@ import { AddmovieService } from 'src/app/addmovie.service';
 export class MoviefetchedComponent {
   list:any[]=[]
 
-  constructor(private router:Router,private addmovie:AddmovieService){}
+  constructor(private router:Router,private addmovie:AddmovieService,private fetching:MoviefetchingService){}
 
   ngOnInit(){
     this.addmovie.getMovies().subscribe((res:any[])=>{
@@ -44,6 +45,36 @@ export class MoviefetchedComponent {
     return btoa(base64);
   }
 
+delete(id:any){
+  this.fetching.deletemovie(id).subscribe((res:any)=>{
+    console.log('delete successful')
+    // this.addmovie.getMovies().subscribe((res:any[])=>{
+    //   this.router.navigate(['/AdminDashboard/moviefetched'])
+    //   this.list = res.data
+      
+    // })
+   
+    this.addmovie.getMovies().subscribe((res:any[])=>{
+      console.log('Movies fetched:', res);
+      this.list = res.map(movie => {
+        const imageBase64 = this.arrayBufferToBase64(movie.image.data.data);
+        // console.log('Image Base64:', imageBase64);
+        return {
+          ...movie,
+          image: `data:${movie.image.contentType};base64,${imageBase64}`
+        };
+      });
+      
+      // console.log('List of movies:', this.list);
+      // console.log('Image Data URL:', this.list[0].image);
 
+    },
+    (error)=>{
+      console.error(`Error fetched requirements:`,error)
+
+    }
+    )
+  })
+}
 
 }
