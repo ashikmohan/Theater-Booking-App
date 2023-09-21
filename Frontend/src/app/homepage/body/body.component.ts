@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AddmovieService } from 'src/app/addmovie.service';
+import { RatingService } from 'src/app/rating.service';
 
 @Component({
   selector: 'app-body',
@@ -9,12 +10,13 @@ import { AddmovieService } from 'src/app/addmovie.service';
 })
 export class BodyComponent {
   list:any[]=[]
-  constructor(private router:Router,private addmovie:AddmovieService){}
+  constructor(private router:Router,private addmovie:AddmovieService,private rating:RatingService){}
   ngOnInit(){
     this.addmovie.getMovies().subscribe((res:any[])=>{
       console.log('Movies fetched:', res);
       this.list = res.map(movie => {
         const imageBase64 = this.arrayBufferToBase64(movie.image.data.data);
+        movie.averageRating = this.rating.getAverageRating(movie._id); // Calculate average rating and assign it directly
         // console.log('Image Base64:', imageBase64);
         return {
           ...movie,

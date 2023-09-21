@@ -10,13 +10,16 @@ import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.compone
 import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetched.component';
 import { MoviedetailsComponent } from './User/moviedetails/moviedetails.component';
 import { EditComponent } from './Admin/edit/edit.component';
+import { userGuard } from './user.guard';
+import { adminGuard } from './admin.guard';
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  
   // User Dashboard
   {
-    path: 'UserDashboard',
+    path: 'UserDashboard', canActivate:[userGuard],
     component: UserdashboardComponent,
     children: [
       { path: 'usermoviefetched', component: UsermoviefetchedComponent },
@@ -26,7 +29,7 @@ const routes: Routes = [
   },
   // Admin Dashboard
   {
-    path: 'AdminDashboard',
+    path: 'AdminDashboard', canActivate:[adminGuard],
     component: AdminDashboardComponent,
     children: [
       { path: 'moviefetched', component: MoviefetchedComponent },

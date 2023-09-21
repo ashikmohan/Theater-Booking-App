@@ -23,6 +23,8 @@ import { UsermoviefetchedComponent } from './User/usermoviefetched/usermoviefetc
 import { MoviedetailsComponent } from './User/moviedetails/moviedetails.component';
 import { MoviefetchingService } from './moviefetching.service';
 import { EditComponent } from './Admin/edit/edit.component';
+import { RatingService } from './rating.service';
+
 
 @NgModule({
   declarations: [
@@ -42,6 +44,7 @@ import { EditComponent } from './Admin/edit/edit.component';
     MoviedetailsComponent,
     EditComponent,
     
+    
   ],
   imports: [
     BrowserModule,
@@ -49,14 +52,15 @@ import { EditComponent } from './Admin/edit/edit.component';
     FormsModule,
     HttpClientModule,
     ReactiveFormsModule,
-    CommonModule
+    CommonModule,
+    
     
     
     
   
 
   ],
-  providers: [AuthserveService,AddmovieService,MoviefetchingService],
+  providers: [AuthserveService,AddmovieService,MoviefetchingService,RatingService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

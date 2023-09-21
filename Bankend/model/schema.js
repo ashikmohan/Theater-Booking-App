@@ -57,9 +57,11 @@ const addMoviesSchema=mongoose.Schema({
     image:{
         data: Buffer, // Store image as binary data
         contentType: String
-    }
-
+    },
+    
 })
+
+
 
 
 const MovieBox = mongoose.connection.useDb('MovieBox');

@@ -22,4 +22,7 @@ export class MoviefetchingService {
  deletemovie(id:any){
 return this.http.delete(`${this.apiUrl}/deletemovies/${id}`)
  }
+
+ 
+
 }

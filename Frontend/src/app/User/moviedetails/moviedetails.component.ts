@@ -3,6 +3,7 @@ import { DomSanitizer,SafeUrl } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AddmovieService } from 'src/app/addmovie.service';
 import { MoviefetchingService } from 'src/app/moviefetching.service';
+import { RatingService } from 'src/app/rating.service';
 
 @Component({
   selector: 'app-moviedetails',
@@ -11,12 +12,17 @@ import { MoviefetchingService } from 'src/app/moviefetching.service';
 })
 export class MoviedetailsComponent implements OnInit {
  
+
+  
   
   movie: any = {};
   // safeImageUrl: SafeUrl | undefined;
   imageSrc: string | ArrayBuffer | null = null;
+  userRating: number | undefined;
+  // averageRatings: number[] = [];
+  averageRating: number =0;
 
-constructor(private route:ActivatedRoute, private addmovie:AddmovieService,private fetching:MoviefetchingService,private sanitizer:DomSanitizer){}
+constructor(private route:ActivatedRoute, private addmovie:AddmovieService,private fetching:MoviefetchingService,private sanitizer:DomSanitizer,private rating:RatingService){}
 ngOnInit(): void {
   this.route.params.subscribe((params) => {
       const movieId = params['id'];
@@ -53,8 +59,26 @@ ngOnInit(): void {
 
         reader.readAsDataURL(blob);
       }
-     })
+     // Fetch the average rating for the movie
+     this.averageRating = this.rating.getAverageRating(movieId);
+     });
+     
   });
 }
 
+
+rateMovie() {
+  if (this.userRating && this.movie._id) {
+    this.rating.rateMovie(this.movie._id, this.userRating);
+    // Update the average rating after rating
+    this.averageRating = this.rating.getAverageRating(this.movie._id);
+    this.userRating = undefined; // Clear the user rating input
   }
+}
+
+}
+
+
+
+
+

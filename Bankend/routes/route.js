@@ -3,8 +3,8 @@ const router=express.Router();
 const bodyParser = require('body-parser');
 const path = require('path');
 const fs = require('fs');
-
-
+const jwt = require('jsonwebtoken');
+const secretKey = 'MovieBox';
 
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
@@ -43,14 +43,16 @@ router.post('/login',(req,res)=>{
     console.log(username,password)
     if(username==="admin@gmail.com" && password==="admin123"){
         const data={username:username,role:"admin"}
-        res.status(200).json({message: 'Admin Login Successful', api:'/AdminDashboard'})
+        const token=jwt.sign({data},secretKey);
+        res.status(200).json({token, role:'admin', message: 'Admin Login Successful', api:'/AdminDashboard'})
     }else{
         usersSignUpData.findOne({username,password})
         .then(user=>{
             if(user){
                  const name=user.name;
                  const data={username:username, role:'user'}
-                 res.status(200).json({role:'user',message:'Login Sucessful', api:'/UserDashboard'});
+                 const token =jwt.sign({data}, secretKey)
+                 res.status(200).json({token, role:'user',message:'Login Sucessful', api:'/UserDashboard',user:name});
             } else{
                 res.status(401).json({error:'Invalid Username or Password'});
             }
@@ -156,5 +158,7 @@ router.delete("/deletemovies/:id",async (req,res)=>{
         res.status(400).json({ message: "DELETE request CANNOT be completed" });       
     }
 })
+
+
 
 module.exports=router;
