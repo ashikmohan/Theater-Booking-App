@@ -1,12 +1,26 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class RatingService {
-  private ratings: { [movieId: string]: number[] } = {};
-  constructor() { }
+   private ratings: { [movieId: string]: number[] } = {};
 
+  // private apiUrl='http://localhost:3000/ticket-booking';
+
+
+  constructor(private http:HttpClient) { }
+
+  // rateMovie(movieId: string, rating: number): Observable<any> {
+  //   const body = {  movieId, rating };
+  //   return this.http.post(`${this.apiUrl}/addrating`, body);
+  // }
+
+  // getAverageRating(movieId: string): Observable<any> {
+  //   return this.http.get(`${this.apiUrl}/averagerating/${movieId}`);
+  // }
   
   rateMovie(movieId: string, rating: number) {
     if (!this.ratings[movieId]) {

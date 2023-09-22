@@ -127,15 +127,23 @@ textarea{
   margin-left: 250px;
 }
 
+.he{
+  float: left;
+}
 /* Custom CSS for the card */
 .card1 {
-  width: 18rem;
+/* margin: auto; */
   margin: 20px;
   border: 1px solid #e0e0e0;
   border-radius: 10px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   background-color: #dbd6d6;
   transition: transform 0.2s;
+  
+  display: flex;
+  flex-direction: column; /* Ensure content stacks vertically */
+  height: 100%; /* Expand card to full height */
+  
 }
 
 .card1:hover {
@@ -145,19 +153,23 @@ textarea{
 
 .card-body1 {
   padding: 20px;
-  margin-bottom: 30px;
+  /* margin-bottom: 30px; */
+  margin: 0; /* Remove any margin */
+  flex-grow: 1; /* Allow content to expand to fill card */
 }
 
 .card-text1 {
   font-size: 16px;
-  line-height: 1.5;
+  /* line-height: 1.5; */
   color: #0e0d0d;
+  margin: 0;
 }
 
 .container {
-  display: flex;
+  /* display: flex; */
   flex-wrap: wrap;
   justify-content: space-between;
+  /* text-align: justify; */
 }
 
 @media (max-width: 768px) {

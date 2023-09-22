@@ -19,7 +19,7 @@ export class MoviefetchedComponent {
       console.log('Movies fetched:', res);
       this.list = res.map(movie => {
         const imageBase64 = this.arrayBufferToBase64(movie.image.data.data);
-        movie.averageRating = this.rating.getAverageRating(movie._id); // Calculate average rating and assign it directly
+         movie.averageRating = this.rating.getAverageRating(movie._id); // Calculate average rating and assign it directly
         // console.log('Image Base64:', imageBase64);
         return {
           ...movie,

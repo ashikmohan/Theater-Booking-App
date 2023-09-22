@@ -74,6 +74,18 @@ const reviewSchema = mongoose.Schema({
     },
   });
 
+  const userRatingSchema = mongoose.Schema({
+    
+    movieId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'movies', // Reference the Movie model
+      required: true,
+    },
+    rating: {
+      type: [],
+      required: true,
+    },
+  });
 
 
 const MovieBox = mongoose.connection.useDb('MovieBox');
@@ -81,6 +93,5 @@ const MovieBox = mongoose.connection.useDb('MovieBox');
 const usersSignUpData =MovieBox.model('MovieBox',SignUpSchema);
 const AddmoviesSchema =MovieBox.model('movies',addMoviesSchema);
 const Review = MovieBox.model('reviews', reviewSchema);
-
-
-module.exports={usersSignUpData,AddmoviesSchema,Review};
+const Rating=MovieBox.model('rating',userRatingSchema);
+module.exports={usersSignUpData,AddmoviesSchema,Review,Rating};

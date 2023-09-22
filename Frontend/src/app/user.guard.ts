@@ -24,8 +24,8 @@ try{
     
     Swal.fire({
       icon: 'error',
-      title: 'Oops...',
-      text: 'Something went wrong!',
+      title: 'Access Denied',
+      text: 'You do not have permission to access this page.',
       
     })
     

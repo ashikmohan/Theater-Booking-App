@@ -19,7 +19,7 @@ const upload=multer({storage:storage})
 
 
 
-const {usersSignUpData,AddmoviesSchema,Review}=require('../model/schema');
+const {usersSignUpData,AddmoviesSchema,Review,Rating}=require('../model/schema');
 
 // signUp
 
@@ -202,6 +202,51 @@ router.post('/addreview', async (req, res) => {
   });
   
 
+// //   rating
+//   router.post('/addrating', async (req, res) => {
+//     try {
+//       const {  movieId, rating } = req.body;
+  
+//       // Check if the user has already rated the movie
+//       const existingRating = await Rating.findOne({  movieId });
+  
+//       if (existingRating) {
+//         // Update the existing rating
+//         existingRating.rating = rating;
+//         await existingRating.save();
+//       } else {
+//         // Create a new rating entry
+//         const userRating = new Rating({  movieId, rating });
+//         await userRating.save();
+//       }
+  
+//       res.status(201).json({ message: 'Rating added/updated successfully' });
+//     } catch (error) {
+//       console.error('Error adding/updating rating:', error);
+//       res.status(500).json({ error: 'Internal server error' });
+//     }
+//   });
 
+//   // Route to fetch average rating for a movie
+// router.get('/averagerating/:movieId', async (req, res) => {
+//     try {
+//       const movieId = req.params.movieId;
+  
+//       // Calculate the average rating for the specified movie
+//       const averageRating = await Rating.aggregate([
+//         { $match: { movieId: mongoose.Types.ObjectId(movieId) } },
+//         { $group: { _id: null, averageRating: { $avg: '$rating' } } },
+//       ]);
+  
+//       if (averageRating.length > 0) {
+//         res.status(200).json({ averageRating: averageRating[0].averageRating });
+//       } else {
+//         res.status(200).json({ averageRating: 0 });
+//       }
+//     } catch (error) {
+//       console.error('Error fetching average rating:', error);
+//       res.status(500).json({ error: 'Internal server error' });
+//     }
+//   });
 
 module.exports=router;

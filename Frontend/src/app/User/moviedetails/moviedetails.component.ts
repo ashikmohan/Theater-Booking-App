@@ -101,6 +101,9 @@ addReview() {
     this.addmovie.addReview(this.movie._id, this.userReview).subscribe(() => {
       // After adding the review, update the displayed reviews
       
+      this.addmovie.getReviewsByMovieId(this.movie._id).subscribe((data: any[]) => {
+        this.reviews = data;
+      });
 
       // Clear the user's review input
       this.userReview = '';
@@ -108,7 +111,24 @@ addReview() {
   }
 }
 
+// rateMovie() {
+//   if (this.userRating && this.movie._id) {
+//     const userId = 'exampleUserId'; // Replace with the actual user ID if available
+//     this.rating.rateMovie(this.movie._id,  this.userRating).subscribe(() => {
+//       // Update the average rating after rating
+//       this.fetchAverageRating();
+//       this.userRating = undefined; // Clear the user rating input
+//     });
+//   }
+// }
 
+// fetchAverageRating() {
+//   if (this.movie && this.movie._id) {
+//     this.rating.getAverageRating(this.movie._id).subscribe((response) => {
+//       this.averageRating = response.averageRating;
+//     });
+//   }
+// }
  
 
 }
