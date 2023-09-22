@@ -12,9 +12,11 @@ import { RatingService } from 'src/app/rating.service';
 export class UsermoviefetchedComponent {
   list:any[]=[];
   // movies: any[] = [];
+  userId: string | null = null;
   
   constructor(private router:Router,private addmovie:AddmovieService,private route: ActivatedRoute,private fetching:MoviefetchingService,private rating:RatingService){}
   ngOnInit(){
+    
     this.addmovie.getMovies().subscribe((res:any[])=>{
       console.log('Movies fetched:', res);
       this.list = res.map(movie => {
@@ -55,5 +57,7 @@ export class UsermoviefetchedComponent {
     return btoa(base64);
   }
  
+
+
 
 }

@@ -20,4 +20,14 @@ export class AddmovieService {
 
   }
 
+  
+  addReview(movieId: string, reviewText: string): Observable<any> {
+    const body = { movieId, reviewText };
+    return this.http.post(`${this.apiUrl}/addreview`, body);
+  }
+
+  getReviewsByMovieId(movieId: string): Observable<any[]> {
+    return this.http.get<any[]>(`${this.apiUrl}/reviews/${movieId}`);
+  }
+  
 }

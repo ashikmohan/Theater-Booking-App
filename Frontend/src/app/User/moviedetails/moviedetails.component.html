@@ -21,20 +21,46 @@
           <h6 class="card-text"><strong>Cast:</strong> {{ movie.cast }}</h6><br><br>
           <h6 class="card-text3"><strong>Description:</strong> {{ movie.description }}</h6><br><br>
           
-          <div class="container mt-3">
-            <div class="row">
-              <div class="col-6">
-                <h6 class="card-text"><strong>Average Rating:</strong> {{ averageRating }}</h6><br>
+          
+              <div class="ratediv">
+                <h6 class="card-text"><strong>Average Rating:</strong> {{ averageRating }}</h6><br><br>
                 <div class="form-group">
                   <label for="userRating">Your Rating:</label>&nbsp;
-                  <input type="number" id="userRating" [(ngModel)]="userRating" /> &nbsp;&nbsp;&nbsp;
+                  <input type="number" min="1" max="10" id="userRating" [(ngModel)]="userRating" /> &nbsp;&nbsp;&nbsp;
                   <button class="rate" (click)="rateMovie()">Rate</button>
                 </div>
               </div>
             </div>
-          </div>
- 
+              <br>
+       <br>
+      <!-- Add a textarea for adding reviews -->
+      <div class="reviewText">
+        
+        <textarea
+          class="form-control"
+          rows="5"
+          placeholder="Write your review here..."
+          [(ngModel)]="userReview"
+        ></textarea><br>
+        <button class="btn btn-primary mt-2  " (click)="addReview()">Submit Review</button>
+      </div>
+     
+ <!-- Display fetched reviews -->
+ <div class="container">
+  <h3>Top Reviews</h3>
+  <div class="row">
+<div class="card1 col-md-4" style="width: 18rem;" *ngFor="let review of reviews">
+  <div class="card-body1">
+   
+    <div class="card-text1" >{{ review.reviewText }}
+      <br>
+      <i class="bi bi-heart-fill" style="color: red; float: left;"></i> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  <i class="bi bi-hand-thumbs-up-fill" style="color: royalblue; float: right;"></i>
+    </div>
+    
+  </div>
 </div>
+</div>
+</div>         
           
           
         

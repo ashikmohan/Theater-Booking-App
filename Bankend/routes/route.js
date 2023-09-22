@@ -19,7 +19,7 @@ const upload=multer({storage:storage})
 
 
 
-const {usersSignUpData,AddmoviesSchema}=require('../model/schema');
+const {usersSignUpData,AddmoviesSchema,Review}=require('../model/schema');
 
 // signUp
 
@@ -76,6 +76,7 @@ router.post('/addmovies',upload.single('image'),async(req,res)=>{
             description,
             rates,
             seats,
+            
         } = req.body;
 
         // Create a new instance of the Mongoose model
@@ -91,6 +92,7 @@ router.post('/addmovies',upload.single('image'),async(req,res)=>{
                 data: Buffer.from(req.file.buffer) , // Store the image data as binary
                 contentType: req.file.mimetype, // Store the content type
             },
+            
         });
 
         // Save the movie data to MongoDB
@@ -158,6 +160,47 @@ router.delete("/deletemovies/:id",async (req,res)=>{
         res.status(400).json({ message: "DELETE request CANNOT be completed" });       
     }
 })
+
+router.post('/addreview', async (req, res) => {
+    try {
+      const { movieId, reviewText } = req.body;
+  
+      // Check if the movie exists
+      const movie = await AddmoviesSchema.findById(movieId);
+  
+      if (!movie) {
+        return res.status(404).json({ error: 'Movie not found' });
+      }
+  
+      // Create a new review document
+      const review = new Review({
+        movieId,
+        reviewText,
+      });
+  
+      await review.save();
+      res.status(201).json({ message: 'Review added successfully' });
+    } catch (error) {
+      console.error('Error adding review:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
+  // Add a new route to fetch reviews by movie ID
+  router.get('/reviews/:movieId', async (req, res) => {
+    try {
+      const movieId = req.params.movieId;
+  
+      // Find all reviews for the specified movie
+      const reviews = await Review.find({ movieId });
+  
+      res.status(200).json(reviews);
+    } catch (error) {
+      console.error('Error fetching reviews:', error);
+      res.status(500).json({ error: 'Internal server error' });
+    }
+  });
+  
 
 
 

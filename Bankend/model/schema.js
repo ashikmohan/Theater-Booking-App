@@ -59,15 +59,28 @@ const addMoviesSchema=mongoose.Schema({
         contentType: String
     },
     
+    
 })
 
+const reviewSchema = mongoose.Schema({
+    movieId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'movies', // Reference the Movie model
+      required: true,
+    },
+    reviewText: {
+      type: String,
+      required: true,
+    },
+  });
 
 
 
 const MovieBox = mongoose.connection.useDb('MovieBox');
 
 const usersSignUpData =MovieBox.model('MovieBox',SignUpSchema);
-const AddmoviesSchema =MovieBox.model('movies',addMoviesSchema)
+const AddmoviesSchema =MovieBox.model('movies',addMoviesSchema);
+const Review = MovieBox.model('reviews', reviewSchema);
 
 
-module.exports={usersSignUpData,AddmoviesSchema};
+module.exports={usersSignUpData,AddmoviesSchema,Review};

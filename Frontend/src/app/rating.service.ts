@@ -25,4 +25,6 @@ export class RatingService {
     const totalRating = ratings.reduce((acc, rating) => acc + rating, 0);
     return totalRating / ratings.length;
   }
+
+  
 }
