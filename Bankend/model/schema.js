@@ -87,6 +87,24 @@ const reviewSchema = mongoose.Schema({
     },
   });
 
+  const bookingSchema = new mongoose.Schema({
+    movieId: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'movies', // Reference to the Movie model
+      required: true,
+    },
+    // username: {
+    //   type: mongoose.Schema.Types.ObjectId,
+    //   ref:'MovieBox',
+    //   required: true,
+    // },
+    seat_number: {
+      type: [],
+      required: true,
+    },
+    // Add other relevant fields here
+  });
+
 
 const MovieBox = mongoose.connection.useDb('MovieBox');
 
@@ -94,4 +112,7 @@ const usersSignUpData =MovieBox.model('MovieBox',SignUpSchema);
 const AddmoviesSchema =MovieBox.model('movies',addMoviesSchema);
 const Review = MovieBox.model('reviews', reviewSchema);
 const Rating=MovieBox.model('rating',userRatingSchema);
-module.exports={usersSignUpData,AddmoviesSchema,Review,Rating};
+const Booking=MovieBox.model('booking',bookingSchema)
+
+
+module.exports={usersSignUpData,AddmoviesSchema,Review,Rating,Booking};

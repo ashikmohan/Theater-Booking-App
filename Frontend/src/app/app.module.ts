@@ -24,6 +24,7 @@ import { MoviedetailsComponent } from './User/moviedetails/moviedetails.componen
 import { MoviefetchingService } from './moviefetching.service';
 import { EditComponent } from './Admin/edit/edit.component';
 import { RatingService } from './rating.service';
+import { TicketbokkingComponent } from './User/ticketbokking/ticketbokking.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { RatingService } from './rating.service';
     UsermoviefetchedComponent,
     MoviedetailsComponent,
     EditComponent,
+    TicketbokkingComponent,
     
     
   ],

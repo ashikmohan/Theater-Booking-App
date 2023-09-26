@@ -1,0 +1,87 @@
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+  }
+  
+  h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  
+  
+  h3 {
+    font-size: 20px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .seat-selection {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .seat-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .seat {
+    width: 30px;
+    height: 30px;
+    background-color: #e0e0e0;
+    border: 1px solid #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s;
+  }
+  
+  .seat.selected {
+    background-color: #328ebf;
+    color: white;
+  }
+  
+  .ticket-details {
+    margin-top: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin: 5px 0;
+  }
+  
+  .book-button {
+    display: block;
+    margin-top: 30px;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-left: 310px;
+  }
+  
+  .book-button:hover {
+    background-color: #0056b3;
+  }
+  
+
+  .seat.sold {
+    background-color: red; /* Change to the color you want for sold seats */
+    color: white; /* Change to text color for sold seats if needed */
+    /* Add any other styles as per your design */
+  }

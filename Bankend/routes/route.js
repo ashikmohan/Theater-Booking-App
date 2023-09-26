@@ -17,9 +17,9 @@ const storage = multer.memoryStorage();
 
 const upload=multer({storage:storage})
 
+const authenticateUser=require('../Auth/auth')
 
-
-const {usersSignUpData,AddmoviesSchema,Review,Rating}=require('../model/schema');
+const {usersSignUpData,AddmoviesSchema,Review,Rating,Booking}=require('../model/schema');
 
 // signUp
 
@@ -200,53 +200,80 @@ router.post('/addreview', async (req, res) => {
       res.status(500).json({ error: 'Internal server error' });
     }
   });
+ 
   
+  // book
 
-// //   rating
-//   router.post('/addrating', async (req, res) => {
-//     try {
-//       const {  movieId, rating } = req.body;
-  
-//       // Check if the user has already rated the movie
-//       const existingRating = await Rating.findOne({  movieId });
-  
-//       if (existingRating) {
-//         // Update the existing rating
-//         existingRating.rating = rating;
-//         await existingRating.save();
-//       } else {
-//         // Create a new rating entry
-//         const userRating = new Rating({  movieId, rating });
-//         await userRating.save();
-//       }
-  
-//       res.status(201).json({ message: 'Rating added/updated successfully' });
-//     } catch (error) {
-//       console.error('Error adding/updating rating:', error);
-//       res.status(500).json({ error: 'Internal server error' });
-//     }
-//   });
 
-//   // Route to fetch average rating for a movie
-// router.get('/averagerating/:movieId', async (req, res) => {
-//     try {
-//       const movieId = req.params.movieId;
-  
-//       // Calculate the average rating for the specified movie
-//       const averageRating = await Rating.aggregate([
-//         { $match: { movieId: mongoose.Types.ObjectId(movieId) } },
-//         { $group: { _id: null, averageRating: { $avg: '$rating' } } },
-//       ]);
-  
-//       if (averageRating.length > 0) {
-//         res.status(200).json({ averageRating: averageRating[0].averageRating });
-//       } else {
-//         res.status(200).json({ averageRating: 0 });
-//       }
-//     } catch (error) {
-//       console.error('Error fetching average rating:', error);
-//       res.status(500).json({ error: 'Internal server error' });
-//     }
-//   });
+  // Route to book a ticket
+router.post('/bookticket', async (req, res) => {
+  try {
+    const { movieId,  seat_number } = req.body;
+
+    // Check if the seat is available
+    const isSeatAvailable = await checkSeatAvailability(movieId, seat_number);
+
+    if (!isSeatAvailable) {
+      return res.status(400).json({ error: 'Seat is not available' });
+    }
+
+    // Create a new booking
+    const booking = new Booking({
+      movieId,
+      // username,
+      seat_number:seat_number,
+      // Add other relevant fields here
+    });
+
+    // Save the booking to MongoDB
+    await booking.save();
+
+    res.status(201).json({ message: 'Ticket booked successfully' });
+  } catch (error) {
+    console.error('Error booking ticket:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Function to check seat availability
+// Function to check seat availability
+async function checkSeatAvailability(movieId, seat_number) {
+  try {
+    // Assuming you have a 'bookings' collection in your MongoDB
+    // You can customize this query based on your actual schema
+    const booking = await Booking.findOne({ movieId, seat_number });
+
+    // If a booking exists for the specified movie and seat, it's not available
+    if (booking) {
+      return false;
+    }
+
+    // If no booking exists, the seat is available
+    return true;
+  } catch (error) {
+    console.error('Error checking seat availability:', error);
+    return false; // Assume the seat is not available in case of an error
+  }
+}
+
+// Add a new route to fetch booking details by ID
+router.get('/booking/:id', async (req, res) => {
+  try {
+    const bookingId = req.params.id;
+
+    // Fetch the booking details by ID
+    const booking = await Booking.findById(bookingId);
+
+    if (!booking) {
+      return res.status(404).json({ error: 'Booking not found' });
+    }
+
+    res.status(200).json(booking);
+  } catch (error) {
+    console.error('Error fetching booking details:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 
 module.exports=router;

@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { AddmovieService } from 'src/app/addmovie.service';
 import { MoviefetchingService } from 'src/app/moviefetching.service';
 import { RatingService } from 'src/app/rating.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-moviefetched',
@@ -50,6 +51,24 @@ export class MoviefetchedComponent {
 delete(id:any){
   this.fetching.deletemovie(id).subscribe((res:any)=>{
     console.log('delete successful')
+
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          'Deleted!',
+          'Your file has been deleted.',
+          'success'
+        )
+      }
+    })
     // this.addmovie.getMovies().subscribe((res:any[])=>{
     //   this.router.navigate(['/AdminDashboard/moviefetched'])
     //   this.list = res.data

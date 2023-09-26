@@ -60,32 +60,20 @@
                         <button style="background-color: transparent;border:none;padding:2px">
                             <i class='fa fa-film' style="font-size:1.3rem;color:white"></i>
                         </button>
-                         <span id="reqform" class="ms-1 d-none d-sm-inline">&nbsp;Movies</span>
+                         <span id="reqform" class="ms-1 d-none d-sm-inline"><i class="bi bi-film"style="font-size:1.3rem;color:white"></i> &nbsp;&nbsp;Movies</span>
                       </a>
                   </li>
-                  <li>
-                      <a routerLink="/dashboard/curriculum-list" data-bs-toggle="collapse"
-                       class="nav-link px-0 align-middle text-light">                                
-                       <button style="background-color: transparent;border:none;padding:2px">
-                        <i class='fas fa-book-reader' style="font-size:1.3rem;color:white"></i>
-                    </button>
-                        <span class="ms-1 d-none d-sm-inline">&nbsp;</span> </a>
-                      <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                          <li class="ml-2">
-                              <a routerLink="/dashboard/approve" class="nav-link px-0"> <span class="d-none d-sm-inline text-light" >
-                                <button style="background-color: transparent;border:none;padding:2px">
-                                    <i class="fa fa-check" style="font-size:1.2rem;color:white"></i>
-                                </button>
-                                &nbsp; </span> </a>
-                          </li>
-                          <li class="ml-2">
-                              <a routerLink="/dashboard/pending" class="nav-link px-0"> <span class="d-none d-sm-inline text-light" >
-                                <button style="background-color: transparent;border:none;padding:2px">
-                                    <i class="fa fa-spinner fa-spin" style="font-size:1.2rem;color:white"></i>
-                                </button> &nbsp; </span> </a>
-                          </li>
-                      </ul>
+                  <li class="nav-item active">
+                      <a routerLink="/AdminDashboard/moviefetched/addmovies" class="nav-link align-middle text-light px-0">
+                        <button style="background-color: transparent;border:none;padding:2px">
+                            <i class='fa fa-film' style="font-size:1.3rem;color:white"></i>
+                        </button>
+                         <span id="reqform" class="ms-1 d-none d-sm-inline"><i class="bi bi-plus-circle-fill" style="font-size:1.3rem;color:white"></i>&nbsp;&nbsp;Add Movies</span>
+                      </a>
                   </li>
+                  
+                      
+                  
               </ul>
      
                   <div class="signout">

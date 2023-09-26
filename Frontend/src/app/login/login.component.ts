@@ -22,6 +22,7 @@ login(){
   },
   (error)=>{
     console.log('login failed',error);
+    Swal.fire('Error!', 'Login Failed.', 'error');
   })
 }
 
