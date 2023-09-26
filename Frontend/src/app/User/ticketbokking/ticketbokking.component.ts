@@ -90,7 +90,7 @@ toggleSeat(seat: string): void {
 
    if (this.isSeatDisabled(seat)) {
     // Handle the case when the seat is booked or already selected
-    alert('This seat is already booked or selected.');
+    alert('This seat is already booked.');
     return;
   }
 
