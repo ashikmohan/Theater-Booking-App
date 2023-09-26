@@ -1,4 +1,6 @@
-
+<div class="d-flex justify-content-between">
+  <button class="btn" ><i class="bi bi-arrow-left-circle" style="font-size: 2rem; color: cornflowerblue;" [routerLink]="['/UserDashboard/moviedetails', movie._id]"></i> </button>
+</div>
 
 
 <div class="container">
@@ -14,67 +16,67 @@
     <div class="seat-selection">
       <div class="row">
         <div class="seat-row" >
-        <div class="seat" [class.selected]="isSeatSelected('A1')" (click)="toggleSeat('A1')">A1</div>
-          <div class="seat" [class.selected]="isSeatSelected('A2')" (click)="toggleSeat('A2')" >A2</div>
-          <div class="seat" [class.selected]="isSeatSelected('A3')" (click)="toggleSeat('A3')" >A3</div>
-          <div class="seat" [class.selected]="isSeatSelected('A4')" (click)="toggleSeat('A4')">A4</div>
-          <div class="seat" [class.selected]="isSeatSelected('A5')" (click)="toggleSeat('A5')">A5</div>
-          <div class="seat" [class.selected]="isSeatSelected('A6')" (click)="toggleSeat('A6')">A6</div>
-          <div class="seat" [class.selected]="isSeatSelected('A7')" (click)="toggleSeat('A7')">A7</div>
-          <div class="seat" [class.selected]="isSeatSelected('A8')" (click)="toggleSeat('A8')">A8</div>
-          <div class="seat" [class.selected]="isSeatSelected('A9')" (click)="toggleSeat('A9')">A9</div>
-          <div class="seat" [class.selected]="isSeatSelected('A10')" (click)="toggleSeat('A10')">A10</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('B1')" (click)="toggleSeat('B1')">B1</div>
-          <div class="seat" [class.selected]="isSeatSelected('B2')" (click)="toggleSeat('B2')">B2</div>
-          <div class="seat" [class.selected]="isSeatSelected('B3')" (click)="toggleSeat('B3')">B3</div>
-          <div class="seat" [class.selected]="isSeatSelected('B4')" (click)="toggleSeat('B4')">B4</div>
-          <div class="seat" [class.selected]="isSeatSelected('B5')" (click)="toggleSeat('B5')">B5</div>
-          <div class="seat" [class.selected]="isSeatSelected('B6')" (click)="toggleSeat('B6')">B6</div>
-          <div class="seat" [class.selected]="isSeatSelected('B7')" (click)="toggleSeat('B7')">B7</div>
-          <div class="seat" [class.selected]="isSeatSelected('B8')" (click)="toggleSeat('B8')">B8</div>
-          <div class="seat" [class.selected]="isSeatSelected('B9')" (click)="toggleSeat('B9')">B9</div>
-          <div class="seat" [class.selected]="isSeatSelected('B10')" (click)="toggleSeat('B10')">B10</div>
+        <div class="seat" [class.selected]="isSeatSelected('A1')" [class.sold]="isSeatBooked('A1')" [class.disabled]="isSeatDisabled('A1')" (click)="toggleSeat('A1')">A1</div>
+          <div class="seat" [class.selected]="isSeatSelected('A2')" [class.sold]="isSeatBooked('A2')" [class.disabled]="isSeatDisabled('A2')" (click)="toggleSeat('A2')" >A2</div>
+          <div class="seat" [class.selected]="isSeatSelected('A3')" [class.sold]="isSeatBooked('A3')" [class.disabled]="isSeatDisabled('A3')" (click)="toggleSeat('A3')" >A3</div>
+          <div class="seat" [class.selected]="isSeatSelected('A4')" [class.sold]="isSeatBooked('A4')" [class.disabled]="isSeatDisabled('A4')" (click)="toggleSeat('A4')">A4</div>
+          <div class="seat" [class.selected]="isSeatSelected('A5')" [class.sold]="isSeatBooked('A5')" [class.disabled]="isSeatDisabled('A5')" (click)="toggleSeat('A5')">A5</div>
+          <div class="seat" [class.selected]="isSeatSelected('A6')" [class.sold]="isSeatBooked('A6')" [class.disabled]="isSeatDisabled('A6')" (click)="toggleSeat('A6')">A6</div>
+          <div class="seat" [class.selected]="isSeatSelected('A7')" [class.sold]="isSeatBooked('A7')" [class.disabled]="isSeatDisabled('A7')" (click)="toggleSeat('A7')">A7</div>
+          <div class="seat" [class.selected]="isSeatSelected('A8')" [class.sold]="isSeatBooked('A8')" [class.disabled]="isSeatDisabled('A8')"(click)="toggleSeat('A8')">A8</div>
+          <div class="seat" [class.selected]="isSeatSelected('A9')"  [class.sold]="isSeatBooked('A9')" [class.disabled]="isSeatDisabled('A9')"(click)="toggleSeat('A9')">A9</div>
+          <div class="seat" [class.selected]="isSeatSelected('A10')" [class.sold]="isSeatBooked('A10')" [class.disabled]="isSeatDisabled('A10')" (click)="toggleSeat('A10')">A10</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('B1')" [class.sold]="isSeatBooked('B1')" [class.disabled]="isSeatDisabled('B1')" (click)="toggleSeat('B1')">B1</div>
+          <div class="seat" [class.selected]="isSeatSelected('B2')" [class.sold]="isSeatBooked('B2')" [class.disabled]="isSeatDisabled('B2')" (click)="toggleSeat('B2')">B2</div>
+          <div class="seat" [class.selected]="isSeatSelected('B3')" [class.sold]="isSeatBooked('B3')" [class.disabled]="isSeatDisabled('B3')" (click)="toggleSeat('B3')">B3</div>
+          <div class="seat" [class.selected]="isSeatSelected('B4')" [class.sold]="isSeatBooked('B4')" [class.disabled]="isSeatDisabled('B4')" (click)="toggleSeat('B4')">B4</div>
+          <div class="seat" [class.selected]="isSeatSelected('B5')" [class.sold]="isSeatBooked('B5')" [class.disabled]="isSeatDisabled('B5')" (click)="toggleSeat('B5')">B5</div>
+          <div class="seat" [class.selected]="isSeatSelected('B6')" [class.sold]="isSeatBooked('B6')" [class.disabled]="isSeatDisabled('B6')"(click)="toggleSeat('B6')">B6</div>
+          <div class="seat" [class.selected]="isSeatSelected('B7')" [class.sold]="isSeatBooked('B7')" [class.disabled]="isSeatDisabled('B7')" (click)="toggleSeat('B7')">B7</div>
+          <div class="seat" [class.selected]="isSeatSelected('B8')" [class.sold]="isSeatBooked('B8')" [class.disabled]="isSeatDisabled('B8')" (click)="toggleSeat('B8')">B8</div>
+          <div class="seat" [class.selected]="isSeatSelected('B9')" [class.sold]="isSeatBooked('B9')" [class.disabled]="isSeatDisabled('B9')"(click)="toggleSeat('B9')">B9</div>
+          <div class="seat" [class.selected]="isSeatSelected('B10')" [class.sold]="isSeatBooked('B10')" [class.disabled]="isSeatDisabled('B10')" (click)="toggleSeat('B10')">B10</div>
 
 
          
          
         </div>
         <div class="seat-row">
-            <div class="seat" [class.selected]="isSeatSelected('C1')" (click)="toggleSeat('C1')">C1</div>
-              <div class="seat" [class.selected]="isSeatSelected('C2')" (click)="toggleSeat('C2')">C2</div>
-              <div class="seat" [class.selected]="isSeatSelected('C3')" (click)="toggleSeat('C3')">C3</div>
-              <div class="seat" [class.selected]="isSeatSelected('C4')" (click)="toggleSeat('C4')">C4</div>
-              <div class="seat" [class.selected]="isSeatSelected('C5')" (click)="toggleSeat('C5')">C5</div>
-              <div class="seat" [class.selected]="isSeatSelected('C6')" (click)="toggleSeat('C6')">C6</div>
-              <div class="seat" [class.selected]="isSeatSelected('C7')" (click)="toggleSeat('C7')">C7</div>
-              <div class="seat" [class.selected]="isSeatSelected('C8')" (click)="toggleSeat('C8')">C8</div>
-              <div class="seat" [class.selected]="isSeatSelected('C9')" (click)="toggleSeat('C9')">C9</div>
-              <div class="seat" [class.selected]="isSeatSelected('C10')" (click)="toggleSeat('C10')">C10</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-              <div class="seat" [class.selected]="isSeatSelected('D1')" (click)="toggleSeat('D1')">D1</div>
-              <div class="seat" [class.selected]="isSeatSelected('D2')" (click)="toggleSeat('D2')">D2</div>
-              <div class="seat" [class.selected]="isSeatSelected('D3')" (click)="toggleSeat('D3')">D3</div>
-              <div class="seat" [class.selected]="isSeatSelected('D4')" (click)="toggleSeat('D4')">D4</div>
-              <div class="seat" [class.selected]="isSeatSelected('D5')" (click)="toggleSeat('D5')">D5</div>
-              <div class="seat" [class.selected]="isSeatSelected('D6')" (click)="toggleSeat('D6')">D6</div>
-              <div class="seat" [class.selected]="isSeatSelected('D7')" (click)="toggleSeat('D7')">D7</div>
-              <div class="seat" [class.selected]="isSeatSelected('D8')" (click)="toggleSeat('D8')">D8</div>
-              <div class="seat" [class.selected]="isSeatSelected('D9')" (click)="toggleSeat('D9')">D9</div>
-              <div class="seat" [class.selected]="isSeatSelected('D10')" (click)="toggleSeat('D10')">D10</div>
+            <div class="seat" [class.selected]="isSeatSelected('C1')" [class.sold]="isSeatBooked('C1')" [class.disabled]="isSeatDisabled('C1')" (click)="toggleSeat('C1')">C1</div>
+              <div class="seat" [class.selected]="isSeatSelected('C2')" [class.sold]="isSeatBooked('C2')" [class.disabled]="isSeatDisabled('C2')" (click)="toggleSeat('C2')">C2</div>
+              <div class="seat" [class.selected]="isSeatSelected('C3')" [class.sold]="isSeatBooked('C3')" [class.disabled]="isSeatDisabled('C3')" (click)="toggleSeat('C3')">C3</div>
+              <div class="seat" [class.selected]="isSeatSelected('C4')" [class.sold]="isSeatBooked('C4')" [class.disabled]="isSeatDisabled('C4')" (click)="toggleSeat('C4')">C4</div>
+              <div class="seat" [class.selected]="isSeatSelected('C5')" [class.sold]="isSeatBooked('C5')" [class.disabled]="isSeatDisabled('C5')" (click)="toggleSeat('C5')">C5</div>
+              <div class="seat" [class.selected]="isSeatSelected('C6')"[class.sold]="isSeatBooked('C6')" [class.disabled]="isSeatDisabled('C6')" (click)="toggleSeat('C6')">C6</div>
+              <div class="seat" [class.selected]="isSeatSelected('C7')" [class.sold]="isSeatBooked('C7')" [class.disabled]="isSeatDisabled('C7')" (click)="toggleSeat('C7')">C7</div>
+              <div class="seat" [class.selected]="isSeatSelected('C8')" [class.sold]="isSeatBooked('C8')" [class.disabled]="isSeatDisabled('C8')" (click)="toggleSeat('C8')">C8</div>
+              <div class="seat" [class.selected]="isSeatSelected('C9')" [class.sold]="isSeatBooked('C9')" [class.disabled]="isSeatDisabled('C9')" (click)="toggleSeat('C9')">C9</div>
+              <div class="seat" [class.selected]="isSeatSelected('C10')" [class.sold]="isSeatBooked('C10')" [class.disabled]="isSeatDisabled('C10')" (click)="toggleSeat('C10')">C10</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <div class="seat" [class.selected]="isSeatSelected('D1')" [class.sold]="isSeatBooked('D1')" [class.disabled]="isSeatDisabled('D1')" (click)="toggleSeat('D1')">D1</div>
+              <div class="seat" [class.selected]="isSeatSelected('D2')" [class.sold]="isSeatBooked('D2')" [class.disabled]="isSeatDisabled('D2')" (click)="toggleSeat('D2')">D2</div>
+              <div class="seat" [class.selected]="isSeatSelected('D3')" [class.sold]="isSeatBooked('D3')" [class.disabled]="isSeatDisabled('D3')" (click)="toggleSeat('D3')">D3</div>
+              <div class="seat" [class.selected]="isSeatSelected('D4')" [class.sold]="isSeatBooked('D4')" [class.disabled]="isSeatDisabled('D4')" (click)="toggleSeat('D4')">D4</div>
+              <div class="seat" [class.selected]="isSeatSelected('D5')" [class.sold]="isSeatBooked('D5')" [class.disabled]="isSeatDisabled('D5')" (click)="toggleSeat('D5')">D5</div>
+              <div class="seat" [class.selected]="isSeatSelected('D6')" [class.sold]="isSeatBooked('D6')" [class.disabled]="isSeatDisabled('D6')" (click)="toggleSeat('D6')">D6</div>
+              <div class="seat" [class.selected]="isSeatSelected('D7')" [class.sold]="isSeatBooked('D7')" [class.disabled]="isSeatDisabled('D7')" (click)="toggleSeat('D7')">D7</div>
+              <div class="seat" [class.selected]="isSeatSelected('D8')" [class.sold]="isSeatBooked('D8')" [class.disabled]="isSeatDisabled('D8')" (click)="toggleSeat('D8')">D8</div>
+              <div class="seat" [class.selected]="isSeatSelected('D9')" [class.sold]="isSeatBooked('D9')" [class.disabled]="isSeatDisabled('D9')" (click)="toggleSeat('D9')">D9</div>
+              <div class="seat" [class.selected]="isSeatSelected('D10')" [class.sold]="isSeatBooked('D10')" [class.disabled]="isSeatDisabled('D10')" (click)="toggleSeat('D10')">D10</div>
    
              
              
             </div>
         <div class="seat-row">
-          <div class="seat" [class.selected]="isSeatSelected('E1')" (click)="toggleSeat('E1')" >E1</div>
-          <div class="seat" [class.selected]="isSeatSelected('E2')" (click)="toggleSeat('E2')" >E2</div>
-          <div class="seat" [class.selected]="isSeatSelected('E3')" (click)="toggleSeat('E3')" >E3</div>
-          <div class="seat" [class.selected]="isSeatSelected('E4')" (click)="toggleSeat('E4')" >E4</div>
-          <div class="seat" [class.selected]="isSeatSelected('E5')" (click)="toggleSeat('E5')" >E5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('E6')" (click)="toggleSeat('E6')" >E6</div>
-          <div class="seat" [class.selected]="isSeatSelected('E7')" (click)="toggleSeat('E7')" >E7</div>
-          <div class="seat" [class.selected]="isSeatSelected('E8')" (click)="toggleSeat('E8')" >E8</div>
-          <div class="seat" [class.selected]="isSeatSelected('E9')" (click)="toggleSeat('E9')" >E9</div>
-          <div class="seat" [class.selected]="isSeatSelected('E10')" (click)="toggleSeat('E10')" >E10</div>
+          <div class="seat" [class.selected]="isSeatSelected('E1')" [class.sold]="isSeatBooked('E1')" [class.disabled]="isSeatDisabled('E1')" (click)="toggleSeat('E1')" >E1</div>
+          <div class="seat" [class.selected]="isSeatSelected('E2')" [class.sold]="isSeatBooked('E2')" [class.disabled]="isSeatDisabled('E2')" (click)="toggleSeat('E2')" >E2</div>
+          <div class="seat" [class.selected]="isSeatSelected('E3')" [class.sold]="isSeatBooked('E3')" [class.disabled]="isSeatDisabled('E3')" (click)="toggleSeat('E3')" >E3</div>
+          <div class="seat" [class.selected]="isSeatSelected('E4')" [class.sold]="isSeatBooked('E4')" [class.disabled]="isSeatDisabled('E4')" (click)="toggleSeat('E4')" >E4</div>
+          <div class="seat" [class.selected]="isSeatSelected('E5')" [class.sold]="isSeatBooked('E5')" [class.disabled]="isSeatDisabled('E5')" (click)="toggleSeat('E5')" >E5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('E6')" [class.sold]="isSeatBooked('E6')" [class.disabled]="isSeatDisabled('E6')" (click)="toggleSeat('E6')" >E6</div>
+          <div class="seat" [class.selected]="isSeatSelected('E7')" [class.sold]="isSeatBooked('E7')" [class.disabled]="isSeatDisabled('E7')" (click)="toggleSeat('E7')" >E7</div>
+          <div class="seat" [class.selected]="isSeatSelected('E8')" [class.sold]="isSeatBooked('E8')" [class.disabled]="isSeatDisabled('E8')" (click)="toggleSeat('E8')" >E8</div>
+          <div class="seat" [class.selected]="isSeatSelected('E9')" [class.sold]="isSeatBooked('E9')" [class.disabled]="isSeatDisabled('E9')" (click)="toggleSeat('E9')" >E9</div>
+          <div class="seat" [class.selected]="isSeatSelected('E10')" [class.sold]="isSeatBooked('E10')" [class.disabled]="isSeatDisabled('E10')" (click)="toggleSeat('E10')" >E10</div>
 
 
          
@@ -82,79 +84,79 @@
         </div>
      
         <div class="seat-row">
-          <div class="seat" [class.selected]="isSeatSelected('F1')" (click)="toggleSeat('F1')">F1</div>
-          <div class="seat" [class.selected]="isSeatSelected('F2')" (click)="toggleSeat('F2')">F2</div>
-          <div class="seat" [class.selected]="isSeatSelected('F3')" (click)="toggleSeat('F3')">F3</div>
-          <div class="seat" [class.selected]="isSeatSelected('F4')" (click)="toggleSeat('F4')">F4</div>
-          <div class="seat" [class.selected]="isSeatSelected('F5')" (click)="toggleSeat('F5')">F5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('F6')" (click)="toggleSeat('F6')">F6</div>
-          <div class="seat" [class.selected]="isSeatSelected('F7')" (click)="toggleSeat('F7')">F7</div>
-          <div class="seat" [class.selected]="isSeatSelected('F8')" (click)="toggleSeat('F8')">F8</div>
-          <div class="seat" [class.selected]="isSeatSelected('F9')" (click)="toggleSeat('F9')">F9</div>
-          <div class="seat" [class.selected]="isSeatSelected('F10')" (click)="toggleSeat('F10')">F10</div>
+          <div class="seat" [class.selected]="isSeatSelected('F1')" [class.sold]="isSeatBooked('F1')" [class.disabled]="isSeatDisabled('F1')" (click)="toggleSeat('F1')">F1</div>
+          <div class="seat" [class.selected]="isSeatSelected('F2')" [class.sold]="isSeatBooked('F2')" [class.disabled]="isSeatDisabled('F2')" (click)="toggleSeat('F2')">F2</div>
+          <div class="seat" [class.selected]="isSeatSelected('F3')" [class.sold]="isSeatBooked('F3')" [class.disabled]="isSeatDisabled('F3')" (click)="toggleSeat('F3')">F3</div>
+          <div class="seat" [class.selected]="isSeatSelected('F4')" [class.sold]="isSeatBooked('F4')" [class.disabled]="isSeatDisabled('F4')" (click)="toggleSeat('F4')">F4</div>
+          <div class="seat" [class.selected]="isSeatSelected('F5')" [class.sold]="isSeatBooked('F5')" [class.disabled]="isSeatDisabled('F5')" (click)="toggleSeat('F5')">F5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('F6')" [class.sold]="isSeatBooked('F6')" [class.disabled]="isSeatDisabled('F6')" (click)="toggleSeat('F6')">F6</div>
+          <div class="seat" [class.selected]="isSeatSelected('F7')" [class.sold]="isSeatBooked('F7')" [class.disabled]="isSeatDisabled('F7')" (click)="toggleSeat('F7')">F7</div>
+          <div class="seat" [class.selected]="isSeatSelected('F8')" [class.sold]="isSeatBooked('F8')" [class.disabled]="isSeatDisabled('F8')" (click)="toggleSeat('F8')">F8</div>
+          <div class="seat" [class.selected]="isSeatSelected('F9')" [class.sold]="isSeatBooked('F9')" [class.disabled]="isSeatDisabled('F9')" (click)="toggleSeat('F9')">F9</div>
+          <div class="seat" [class.selected]="isSeatSelected('F10')" [class.sold]="isSeatBooked('F10')" [class.disabled]="isSeatDisabled('F10')" (click)="toggleSeat('F10')">F10</div>
 
 
          
      
         </div>
         <div class="seat-row">
-          <div class="seat" [class.selected]="isSeatSelected('G1')" (click)="toggleSeat('G1')">G1</div>
-          <div class="seat" [class.selected]="isSeatSelected('G2')" (click)="toggleSeat('G2')">G2</div>
-          <div class="seat" [class.selected]="isSeatSelected('G3')" (click)="toggleSeat('G3')">G3</div>
-          <div class="seat" [class.selected]="isSeatSelected('G4')" (click)="toggleSeat('G4')">G4</div>
-          <div class="seat" [class.selected]="isSeatSelected('G5')" (click)="toggleSeat('G5')">G5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('G6')" (click)="toggleSeat('G6')">G6</div>
-          <div class="seat" [class.selected]="isSeatSelected('G7')" (click)="toggleSeat('G7')">G7</div>
-          <div class="seat" [class.selected]="isSeatSelected('G8')" (click)="toggleSeat('G8')">G8</div>
-          <div class="seat" [class.selected]="isSeatSelected('G9')" (click)="toggleSeat('G9')">G9</div>
-          <div class="seat" [class.selected]="isSeatSelected('G10')" (click)="toggleSeat('G10')">G10</div>
+          <div class="seat" [class.selected]="isSeatSelected('G1')" [class.sold]="isSeatBooked('G1')" [class.disabled]="isSeatDisabled('G1')" (click)="toggleSeat('G1')">G1</div>
+          <div class="seat" [class.selected]="isSeatSelected('G2')" [class.sold]="isSeatBooked('G2')" [class.disabled]="isSeatDisabled('G2')" (click)="toggleSeat('G2')">G2</div>
+          <div class="seat" [class.selected]="isSeatSelected('G3')" [class.sold]="isSeatBooked('G3')" [class.disabled]="isSeatDisabled('G3')" (click)="toggleSeat('G3')">G3</div>
+          <div class="seat" [class.selected]="isSeatSelected('G4')" [class.sold]="isSeatBooked('G4')" [class.disabled]="isSeatDisabled('G4')" (click)="toggleSeat('G4')">G4</div>
+          <div class="seat" [class.selected]="isSeatSelected('G5')" [class.sold]="isSeatBooked('G5')" [class.disabled]="isSeatDisabled('G5')" (click)="toggleSeat('G5')">G5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('G6')" [class.sold]="isSeatBooked('G6')" [class.disabled]="isSeatDisabled('G6')" (click)="toggleSeat('G6')">G6</div>
+          <div class="seat" [class.selected]="isSeatSelected('G7')" [class.sold]="isSeatBooked('G7')" [class.disabled]="isSeatDisabled('G7')" (click)="toggleSeat('G7')">G7</div>
+          <div class="seat" [class.selected]="isSeatSelected('G8')" [class.sold]="isSeatBooked('G8')" [class.disabled]="isSeatDisabled('G8')" (click)="toggleSeat('G8')">G8</div>
+          <div class="seat" [class.selected]="isSeatSelected('G9')" [class.sold]="isSeatBooked('G9')" [class.disabled]="isSeatDisabled('G9')" (click)="toggleSeat('G9')">G9</div>
+          <div class="seat" [class.selected]="isSeatSelected('G10')" [class.sold]="isSeatBooked('G10')" [class.disabled]="isSeatDisabled('G10')" (click)="toggleSeat('G10')">G10</div>
 
 
          
         </div>
         <div class="seat-row">
-          <div class="seat" [class.selected]="isSeatSelected('H1')" (click)="toggleSeat('H1')">H1</div>
-          <div class="seat" [class.selected]="isSeatSelected('H2')" (click)="toggleSeat('H2')">H2</div>
-          <div class="seat" [class.selected]="isSeatSelected('H3')" (click)="toggleSeat('H3')">H3</div>
-          <div class="seat" [class.selected]="isSeatSelected('H4')" (click)="toggleSeat('H4')">H4</div>
-          <div class="seat" [class.selected]="isSeatSelected('H5')" (click)="toggleSeat('H5')">H5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('H6')" (click)="toggleSeat('H6')">H6</div>
-          <div class="seat" [class.selected]="isSeatSelected('H7')" (click)="toggleSeat('H7')">H7</div>
-          <div class="seat" [class.selected]="isSeatSelected('H8')" (click)="toggleSeat('H8')">H8</div>
-          <div class="seat" [class.selected]="isSeatSelected('H9')" (click)="toggleSeat('H9')">H9</div>
-          <div class="seat" [class.selected]="isSeatSelected('H10')" (click)="toggleSeat('H10')">H10</div>
+          <div class="seat" [class.selected]="isSeatSelected('H1')" [class.sold]="isSeatBooked('H1')" [class.disabled]="isSeatDisabled('H1')" (click)="toggleSeat('H1')">H1</div>
+          <div class="seat" [class.selected]="isSeatSelected('H2')" [class.sold]="isSeatBooked('H2')" [class.disabled]="isSeatDisabled('H2')" (click)="toggleSeat('H2')">H2</div>
+          <div class="seat" [class.selected]="isSeatSelected('H3')" [class.sold]="isSeatBooked('H3')" [class.disabled]="isSeatDisabled('H3')" (click)="toggleSeat('H3')">H3</div>
+          <div class="seat" [class.selected]="isSeatSelected('H4')" [class.sold]="isSeatBooked('H4')" [class.disabled]="isSeatDisabled('H4')" (click)="toggleSeat('H4')">H4</div>
+          <div class="seat" [class.selected]="isSeatSelected('H5')" [class.sold]="isSeatBooked('H5')" [class.disabled]="isSeatDisabled('H5')" (click)="toggleSeat('H5')">H5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('H6')" [class.sold]="isSeatBooked('H6')" [class.disabled]="isSeatDisabled('H6')" (click)="toggleSeat('H6')">H6</div>
+          <div class="seat" [class.selected]="isSeatSelected('H7')" [class.sold]="isSeatBooked('H7')" [class.disabled]="isSeatDisabled('H7')" (click)="toggleSeat('H7')">H7</div>
+          <div class="seat" [class.selected]="isSeatSelected('H8')" [class.sold]="isSeatBooked('H8')" [class.disabled]="isSeatDisabled('H8')" (click)="toggleSeat('H8')">H8</div>
+          <div class="seat" [class.selected]="isSeatSelected('H9')" [class.sold]="isSeatBooked('H9')" [class.disabled]="isSeatDisabled('H9')" (click)="toggleSeat('H9')">H9</div>
+          <div class="seat" [class.selected]="isSeatSelected('H10')" [class.sold]="isSeatBooked('H10')" [class.disabled]="isSeatDisabled('H10')" (click)="toggleSeat('H10')">H10</div>
 
 
          
          
         </div>
         <div class="seat-row">
-          <div class="seat" [class.selected]="isSeatSelected('I1')" (click)="toggleSeat('I1')">I1</div>
-          <div class="seat" [class.selected]="isSeatSelected('I2')" (click)="toggleSeat('I2')">I2</div>
-          <div class="seat" [class.selected]="isSeatSelected('I3')" (click)="toggleSeat('I3')">I3</div>
-          <div class="seat" [class.selected]="isSeatSelected('I4')" (click)="toggleSeat('I4')">I4</div>
-          <div class="seat" [class.selected]="isSeatSelected('I5')" (click)="toggleSeat('I5')">I5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('I6')" (click)="toggleSeat('I6')">I6</div>
-          <div class="seat" [class.selected]="isSeatSelected('I7')" (click)="toggleSeat('I7')">I7</div>
-          <div class="seat" [class.selected]="isSeatSelected('I8')" (click)="toggleSeat('I8')">I8</div>
-          <div class="seat" [class.selected]="isSeatSelected('I9')" (click)="toggleSeat('I9')">I9</div>
-          <div class="seat" [class.selected]="isSeatSelected('I10')" (click)="toggleSeat('I10')">I10</div>
+          <div class="seat" [class.selected]="isSeatSelected('I1')" [class.sold]="isSeatBooked('I1')" [class.disabled]="isSeatDisabled('I1')" (click)="toggleSeat('I1')">I1</div>
+          <div class="seat" [class.selected]="isSeatSelected('I2')" [class.sold]="isSeatBooked('I2')" [class.disabled]="isSeatDisabled('I2')"  (click)="toggleSeat('I2')">I2</div>
+          <div class="seat" [class.selected]="isSeatSelected('I3')" [class.sold]="isSeatBooked('I3')" [class.disabled]="isSeatDisabled('I3')"  (click)="toggleSeat('I3')">I3</div>
+          <div class="seat" [class.selected]="isSeatSelected('I4')" [class.sold]="isSeatBooked('I4')" [class.disabled]="isSeatDisabled('I4')"  (click)="toggleSeat('I4')">I4</div>
+          <div class="seat" [class.selected]="isSeatSelected('I5')"  [class.sold]="isSeatBooked('I5')" [class.disabled]="isSeatDisabled('I5')" (click)="toggleSeat('I5')">I5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('I6')" [class.sold]="isSeatBooked('I6')" [class.disabled]="isSeatDisabled('I6')"  (click)="toggleSeat('I6')">I6</div>
+          <div class="seat" [class.selected]="isSeatSelected('I7')"  [class.sold]="isSeatBooked('I7')" [class.disabled]="isSeatDisabled('I7')" (click)="toggleSeat('I7')">I7</div>
+          <div class="seat" [class.selected]="isSeatSelected('I8')" [class.sold]="isSeatBooked('I8')" [class.disabled]="isSeatDisabled('I8')"  (click)="toggleSeat('I8')">I8</div>
+          <div class="seat" [class.selected]="isSeatSelected('I9')" [class.sold]="isSeatBooked('I9')" [class.disabled]="isSeatDisabled('I9')"  (click)="toggleSeat('I9')">I9</div>
+          <div class="seat" [class.selected]="isSeatSelected('I10')" [class.sold]="isSeatBooked('I10')" [class.disabled]="isSeatDisabled('I10')"  (click)="toggleSeat('I10')">I10</div>
 
 
          
        
         </div>
         <div class="seat-row">
-          <div class="seat" [class.selected]="isSeatSelected('J1')" (click)="toggleSeat('J1')">J1</div>
-          <div class="seat" [class.selected]="isSeatSelected('J2')" (click)="toggleSeat('J2')">J2</div>
-          <div class="seat" [class.selected]="isSeatSelected('J3')" (click)="toggleSeat('J3')">J3</div>
-          <div class="seat" [class.selected]="isSeatSelected('J4')" (click)="toggleSeat('J4')">J4</div>
-          <div class="seat" [class.selected]="isSeatSelected('J5')" (click)="toggleSeat('J5')">J5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          <div class="seat" [class.selected]="isSeatSelected('J6')" (click)="toggleSeat('J6')">J6</div>
-          <div class="seat" [class.selected]="isSeatSelected('J7')" (click)="toggleSeat('J7')">J7</div>
-          <div class="seat" [class.selected]="isSeatSelected('J8')" (click)="toggleSeat('J8')">J8</div>
-          <div class="seat" [class.selected]="isSeatSelected('J9')" (click)="toggleSeat('J9')">J9</div>
-          <div class="seat" [class.selected]="isSeatSelected('J10')" (click)="toggleSeat('J10')">J10</div>
+          <div class="seat" [class.selected]="isSeatSelected('J1')" [class.sold]="isSeatBooked('J1')" [class.disabled]="isSeatDisabled('J1')"  (click)="toggleSeat('J1')">J1</div>
+          <div class="seat" [class.selected]="isSeatSelected('J2')" [class.sold]="isSeatBooked('J2')" [class.disabled]="isSeatDisabled('J2')" (click)="toggleSeat('J2')">J2</div>
+          <div class="seat" [class.selected]="isSeatSelected('J3')" [class.sold]="isSeatBooked('J3')" [class.disabled]="isSeatDisabled('J3')" (click)="toggleSeat('J3')">J3</div>
+          <div class="seat" [class.selected]="isSeatSelected('J4')" [class.sold]="isSeatBooked('J4')" [class.disabled]="isSeatDisabled('J4')" (click)="toggleSeat('J4')">J4</div>
+          <div class="seat" [class.selected]="isSeatSelected('J5')" [class.sold]="isSeatBooked('J5')" [class.disabled]="isSeatDisabled('J5')" (click)="toggleSeat('J5')">J5</div> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          <div class="seat" [class.selected]="isSeatSelected('J6')" [class.sold]="isSeatBooked('J6')" [class.disabled]="isSeatDisabled('J6')" (click)="toggleSeat('J6')">J6</div>
+          <div class="seat" [class.selected]="isSeatSelected('J7')" [class.sold]="isSeatBooked('J7')" [class.disabled]="isSeatDisabled('J7')" (click)="toggleSeat('J7')">J7</div>
+          <div class="seat" [class.selected]="isSeatSelected('J8')" [class.sold]="isSeatBooked('J8')" [class.disabled]="isSeatDisabled('J8')" (click)="toggleSeat('J8')">J8</div>
+          <div class="seat" [class.selected]="isSeatSelected('J9')" [class.sold]="isSeatBooked('J9')" [class.disabled]="isSeatDisabled('J9')" (click)="toggleSeat('J9')">J9</div>
+          <div class="seat" [class.selected]="isSeatSelected('J10')" [class.sold]="isSeatBooked('J10')" [class.disabled]="isSeatDisabled('J10')" (click)="toggleSeat('J10')">J10</div>
 
 
          

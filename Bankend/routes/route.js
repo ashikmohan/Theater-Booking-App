@@ -276,4 +276,34 @@ router.get('/booking/:id', async (req, res) => {
 });
 
 
+// Add a new route to get the list of sold seats for a specific movie
+router.get('/soldseats/:movieId', async (req, res) => {
+  try {
+    const movieId = req.params.movieId;
+
+    // Fetch the list of sold seats for the specified movie
+    const soldSeats = await getSoldSeatsForMovie(movieId);
+
+    res.status(200).json(soldSeats);
+  } catch (error) {
+    console.error('Error fetching sold seats:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Function to get sold seats for a specific movie
+async function getSoldSeatsForMovie(movieId) {
+  try {
+    // Assuming you have a 'bookings' collection in your MongoDB
+    // You can customize this query based on your actual schema
+    const soldSeats = await Booking.find({ movieId }).distinct('seat_number');
+
+    return soldSeats;
+  } catch (error) {
+    console.error('Error fetching sold seats:', error);
+    return []; // Return an empty array in case of an error
+  }
+}
+
+
 module.exports=router;

@@ -80,8 +80,32 @@
   }
   
 
-  .seat.sold {
-    background-color: red; /* Change to the color you want for sold seats */
-    color: white; /* Change to text color for sold seats if needed */
-    /* Add any other styles as per your design */
+  .seat.disabled {
+    background-color: #ccc; /* Change the color to a suitable disabled color */
+    cursor: not-allowed;
   }
+  /* Style for selected seats */
+.seat.selected {
+  background-color: #3498db; /* Change this to your preferred color */
+  color: #fff;
+}
+
+/* Style for booked seats */
+.seat.sold {
+  background-color: #e74c3c; /* Change this to your preferred color */
+  color: #fff;
+}
+
+/* Style for disabled seats (already booked or selected) */
+.seat.disabled {
+  background-color: #ea0c0c; /* Change this to your preferred color */
+  color: #fefefe;
+  cursor: not-allowed;
+  
+}
+
+
+
+
+
+

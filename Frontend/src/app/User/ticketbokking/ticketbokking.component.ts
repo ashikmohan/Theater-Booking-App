@@ -27,7 +27,7 @@ export class TicketbokkingComponent implements OnInit {
   selectedSeats: string[] = [];
   seatNumbersInput: string = '';
 
- 
+  bookedSeats: string[] = [];
 
   constructor(private router:Router,private book:BookingService,private route: ActivatedRoute,private fetching:MoviefetchingService){}
 
@@ -41,7 +41,7 @@ ngOnInit(): void {
       console.log(this.movie);
       this.movie=response.data
     })
-    
+    this.loadSoldSeats();
   });
 }
 bookTicket() {
@@ -87,6 +87,16 @@ bookTicket() {
 
 
 toggleSeat(seat: string): void {
+
+   if (this.isSeatDisabled(seat)) {
+    // Handle the case when the seat is booked or already selected
+    alert('This seat is already booked or selected.');
+    return;
+  }
+
+
+
+
   const seatIndex = this.selectedSeats.indexOf(seat);
   if (seatIndex !== -1) {
     this.selectedSeats.splice(seatIndex, 1); // Deselect the seat
@@ -103,10 +113,25 @@ isSeatSelected(seat: string):boolean {
   return this.selectedSeats.includes(seat);
 }
 
+isSeatBooked(seat: string): boolean {
+  return this.bookedSeats.includes(seat);
+}
+
+isSeatDisabled(seat: string): boolean {
+  return this.isSeatBooked(seat) || this.isSeatSelected(seat);
+}
 
 
-
-
+loadSoldSeats() {
+  this.book.getSoldSeats(this.movieId).subscribe(
+    (response) => {
+      this.bookedSeats = response;
+    },
+    (error) => {
+      console.error('Error loading sold seats:', error);
+    }
+  );
+}
 
 
 
