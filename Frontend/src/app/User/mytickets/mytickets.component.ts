@@ -21,11 +21,37 @@ ngOnInit(): void {
 
   this.username = this.authserve.getUsername();
 
-   if (this.username) {
+  //  if (this.username) {
+  //   this.booking.getUserTickets(this.username).subscribe(
+  //     (res: any) => {
+  //       this.usertickets = res.data;
+  //       console.log('fetching user tickets')
+  //       this.isLoading = false;
+  //     },
+  //     (error: any) => {
+  //       console.error('Error fetching user tickets:', error);
+  //       this.isLoading = false;
+  //     }
+  //   );
+  //   }
+
+  if (this.username) {
+    // Check if the data is already cached
+    if (!this.usertickets.length) {
+      this.fetchUserTickets();
+    } else {
+      this.isLoading = false;
+    }
+  }
+    
+  }
+
+
+  fetchUserTickets() {
     this.booking.getUserTickets(this.username).subscribe(
       (res: any) => {
         this.usertickets = res.data;
-        console.log('fetching user tickets')
+        console.log('fetching user tickets');
         this.isLoading = false;
       },
       (error: any) => {
@@ -33,39 +59,71 @@ ngOnInit(): void {
         this.isLoading = false;
       }
     );
+  }
+
+
+
+//   deleteTickets(ticketId:string){
+// this.booking.deletetickets(ticketId).subscribe(
+//   (res:any)=>{
+//     console.log('Ticket deleted sucessfully')
+//     Swal.fire({
+//       title: 'Are you sure?',
+//       text: "You won't be able to revert this!",
+//       icon: 'warning',
+//       showCancelButton: true,
+//       confirmButtonColor: '#3085d6',
+//       cancelButtonColor: '#d33',
+//       confirmButtonText: 'Yes, delete it!'
+//     }).then((result) => {
+//       if (result.isConfirmed) {
+//         Swal.fire(
+//           'Deleted!',
+//           'Your file has been deleted.',
+//           'success'
+//         )
+//       }
+//     })
+//     this.router.navigate(['/UserDashboard/usermoviefetched']);
+//   },
+//   (error: any) => {
+//     console.error('Error deleting ticket:', error);
+//   }
+// )
+//   }
+
+
+deleteTickets(ticketId: string) {
+  this.booking.deletetickets(ticketId).subscribe(
+    (res: any) => {
+      console.log('Ticket deleted successfully');
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        // showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
+        }
+      });
+
+      // Remove the deleted ticket from the cached data
+      this.usertickets = this.usertickets.filter(
+        (ticket) => ticket._id !== ticketId
+      );
+    },
+    (error: any) => {
+      console.error('Error deleting ticket:', error);
     }
+  );
+}
 
-    
-  }
 
-  deleteTickets(ticketId:string){
-this.booking.deletetickets(ticketId).subscribe(
-  (res:any)=>{
-    console.log('Ticket deleted sucessfully')
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!'
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          'Deleted!',
-          'Your file has been deleted.',
-          'success'
-        )
-      }
-    })
-    this.router.navigate(['/UserDashboard/usermoviefetched']);
-  },
-  (error: any) => {
-    console.error('Error deleting ticket:', error);
-  }
-)
-  }
+
 }
 
 

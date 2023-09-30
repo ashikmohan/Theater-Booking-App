@@ -44,7 +44,6 @@ function verifytoken(req,res,next){
 
 
 
-
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
@@ -231,7 +230,7 @@ router.post('/addreview', async (req, res) => {
   });
   
   // Add a new route to fetch reviews by movie ID
-  router.get('/reviews/:movieId',verifytoken, async (req, res) => {
+  router.get('/reviews/:movieId', async (req, res) => {
     try {
       const movieId = req.params.movieId;
   
