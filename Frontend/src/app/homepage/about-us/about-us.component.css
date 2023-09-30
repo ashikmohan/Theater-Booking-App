@@ -1,0 +1,87 @@
+ /* Global Styles */
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 20px;
+    /* background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); */
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+
+
+p {
+    line-height: 1.6;
+}
+
+/* About Us Styles */
+.about-section {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.about-heading {
+    /* font-size: 24px; */
+    margin-bottom: 10px;
+   color: #007bff;
+}
+
+.legacy-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.legacy-heading {
+    font-size: 20px;
+    color: #111111;
+}
+
+.legacy-content {
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.features-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.features-heading {
+    font-size: 20px;
+    color: #121111;
+}
+
+.feature-item {
+    margin-top: 10px;
+}
+
+.feature-item i {
+    color: #007bff;
+    font-size: 24px;
+}
+
+/* Contact Section Styles */
+.contact-section {
+    margin-top: 30px;
+    text-align: left;
+}
+
+.contact-heading {
+    font-size: 20px;
+    color: #1c1b1b;
+}
+
+.contact-info {
+    margin-top: 10px;
+    font-size: 16px;
+}
+.maps{
+    float: right;
+}

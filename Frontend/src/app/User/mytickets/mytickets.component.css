@@ -1,0 +1,33 @@
+
+  /* Add more styles as needed */
+  
+/* Custom card styles */
+.card {
+    background-color: #c1b6b3;
+    background-image: url('/assets/Yk96hN.jpg');
+    background-size: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    margin-right: 900px;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+  
+  .card-title {
+    font-size: 18px;
+    font-weight: bold;
+    color: #ffffff;
+  }
+  
+  .card-text {
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    margin-bottom: 8px;
+    font-weight: bold;
+  }
+  

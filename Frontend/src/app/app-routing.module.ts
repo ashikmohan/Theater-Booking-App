@@ -15,10 +15,12 @@ import { adminGuard } from './admin.guard';
 import { TicketbokkingComponent } from './User/ticketbokking/ticketbokking.component';
 import { TicketsComponent } from './Admin/tickets/tickets.component';
 import { MyticketsComponent } from './User/mytickets/mytickets.component';
+import { AboutUsComponent } from './homepage/about-us/about-us.component';
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
   { path: 'signup', component: SignupComponent },
+  {path:'aboutus', component:AboutUsComponent},
   
   // User Dashboard
   {

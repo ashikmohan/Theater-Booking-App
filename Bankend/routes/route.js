@@ -47,8 +47,8 @@ function verifytoken(req,res,next){
 const transporter = nodemailer.createTransport({
   service: 'Gmail',
   auth: {
-    user: 'ashikmohan3992@gmail.com', // Your email address
-    pass: 'uppjyfwwmwvciphz' // Your email password
+    user: 'movieboxtheatre2023@gmail.com', // Your email address
+    pass: 'vfntwwpsblekwcka' // Your email password
   }
 });
 
@@ -280,7 +280,21 @@ router.post('/bookticket', async (req, res) => {
     // Save the booking to MongoDB
     await booking.save();
 
+// Send a success email to the user
+const mailOptions = {
+  from: 'movieboxtheatre2023@gmail.com',
+  to: username, // Use the user's email address here
+  subject: 'Ticket Booking Confirmation',
+  text: `Dear ${name},\n\nYour ticket for ${moviename} at ${time},  ${screen}, Seat No. ${seat_number} has been booked successfully.\n\nEnjoy the movie!`,
+};
 
+transporter.sendMail(mailOptions, (error, info) => {
+  if (error) {
+    console.error('Error sending email:', error);
+  } else {
+    console.log('Email sent:', info.response);
+  }
+});
 
 
 

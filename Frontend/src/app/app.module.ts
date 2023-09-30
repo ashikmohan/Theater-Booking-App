@@ -30,6 +30,7 @@ import { MyticketsComponent } from './User/mytickets/mytickets.component';
 import { BookingService } from './booking.service';
 import { TokeninterceptorService } from './tokeninterceptor.service';
 import { adminGuard } from './admin.guard';
+import { AboutUsComponent } from './homepage/about-us/about-us.component';
 
 
 @NgModule({
@@ -52,6 +53,7 @@ import { adminGuard } from './admin.guard';
     TicketbokkingComponent,
     TicketsComponent,
     MyticketsComponent,
+    AboutUsComponent,
     
     
   ],
