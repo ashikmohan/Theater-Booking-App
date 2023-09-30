@@ -8,7 +8,7 @@ import { AuthserveService } from 'src/app/authserve.service';
   styleUrls: ['./userdashboard.component.css']
 })
 export class UserdashboardComponent {
-  
+  username: string = ''; 
   constructor(private authServe:AuthserveService, private router:Router){}
   isLoggedIn(): boolean{
     return this.authServe.isLoggedIn();

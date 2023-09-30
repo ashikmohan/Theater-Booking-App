@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthserveService } from 'src/app/authserve.service';
 import { BookingService } from 'src/app/booking.service';
 import { MoviefetchingService } from 'src/app/moviefetching.service';
 import Swal from 'sweetalert2';
@@ -11,17 +12,18 @@ import Swal from 'sweetalert2';
   styleUrls: ['./ticketbokking.component.css']
 })
 export class TicketbokkingComponent implements OnInit {
-  //  seatRows: string[] = ['A', 'B', 'C']; // Example seat rows
-  //  seatNumber: number = 1; // Example seat number
-  // movie: { _id: string } = { _id: '' }; // Example movie object
-  // selectedSeats: string[] = [];
-  // numberOfRows: number = 10; // Change this to the number of rows you need
-  // seatsPerRow: number = 10; // Change this to the number of seats per row you need
-
  
+
+  username: string = '';
+  name: string = '';
+  moviename: string = '';
+  time: string = '';
+  screen: string = '';
+// user:any={};
+// userId:string='';
   movie: any = {};
   movieId: string = '';
-  // username: string = '';
+  
   seat_number: string ='';
   errorMessage: string = '';
   selectedSeats: string[] = [];
@@ -29,29 +31,53 @@ export class TicketbokkingComponent implements OnInit {
 
   bookedSeats: string[] = [];
 
-  constructor(private router:Router,private book:BookingService,private route: ActivatedRoute,private fetching:MoviefetchingService){}
+
+  constructor(private router:Router,private book:BookingService,private route: ActivatedRoute,private fetching:MoviefetchingService,private authserve:AuthserveService){}
 
 ngOnInit(): void {
   this.route.params.subscribe((params) => {
     this.movieId = params['id'];
-
+    
     
 
     this.fetching.getMovieById(this.movieId).subscribe((response)=>{
       console.log(this.movie);
       this.movie=response.data
+    
+    // this.authserve.getuserById(this.userId).subscribe((userResponse)=>{
+    //   console.log(this.user);
+    //   this.user=userResponse.data
+    //   this.username = this.user.username;
+    //       this.name = this.user.name;
+    // },
+    // (error) => {
+    //   console.error('Error fetching user details:', error);
+    //   // Handle the error (e.g., display an error message)
+    // })
+    
     })
+    
     this.loadSoldSeats();
   });
 }
 bookTicket() {
 
+  
+  
+  
   console.log('Selected Seats to Book:', this.selectedSeats);
+  // const user = this.authserve.getCurrentUser();
   // Create an object with the data to be sent to the backend
+  
   const bookingData = {
     movieId: this.movieId,
     // username: this.username,
     seat_number: this.selectedSeats,
+    username: this.username,
+    name: this.name,
+    moviename:this.movie.moviename,
+    time:this.movie.time,
+    screen:this.movie.screen
     // Add other relevant data fields here
   };
 
@@ -63,6 +89,7 @@ bookTicket() {
       this.errorMessage = '';
       this.selectedSeats = [];
       this.seatNumbersInput = '';
+ 
       Swal.fire('Success!', 'Ticket Booking Successfully', 'success');
       this.router.navigate(['/UserDashboard/usermoviefetched'])
 
@@ -136,3 +163,4 @@ loadSoldSeats() {
 
 
 }
+

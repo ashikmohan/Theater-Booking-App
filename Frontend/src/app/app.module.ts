@@ -11,7 +11,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthserveService } from './authserve.service';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { UserdashboardComponent } from './User/userdashboard/userdashboard.component';
 import { NavdComponent } from './navd/navd.component';
@@ -25,6 +25,11 @@ import { MoviefetchingService } from './moviefetching.service';
 import { EditComponent } from './Admin/edit/edit.component';
 import { RatingService } from './rating.service';
 import { TicketbokkingComponent } from './User/ticketbokking/ticketbokking.component';
+import { TicketsComponent } from './Admin/tickets/tickets.component';
+import { MyticketsComponent } from './User/mytickets/mytickets.component';
+import { BookingService } from './booking.service';
+import { TokeninterceptorService } from './tokeninterceptor.service';
+import { adminGuard } from './admin.guard';
 
 
 @NgModule({
@@ -45,6 +50,8 @@ import { TicketbokkingComponent } from './User/ticketbokking/ticketbokking.compo
     MoviedetailsComponent,
     EditComponent,
     TicketbokkingComponent,
+    TicketsComponent,
+    MyticketsComponent,
     
     
   ],
@@ -62,7 +69,17 @@ import { TicketbokkingComponent } from './User/ticketbokking/ticketbokking.compo
   
 
   ],
-  providers: [AuthserveService,AddmovieService,MoviefetchingService,RatingService],
+  providers: [AuthserveService,
+    AddmovieService,
+    MoviefetchingService,
+    RatingService,
+    BookingService,
+    {
+    provide:HTTP_INTERCEPTORS,
+    useClass:TokeninterceptorService,
+    multi:true
+  }
+],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

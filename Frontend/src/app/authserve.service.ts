@@ -9,6 +9,9 @@ import { Observable, tap,  } from 'rxjs';
 export class AuthserveService {
 
   private apiUrl='http://localhost:3000/ticket-booking';
+  
+  private username: string | null = null;
+  
   constructor(private http:HttpClient) { }
 
   // signUp
@@ -24,6 +27,8 @@ export class AuthserveService {
       tap((response:any)=>{
         if(response && response.token){
           localStorage.setItem('token',response.token);
+        
+          this.setUsername(username);
         }
       })
     )
@@ -41,4 +46,15 @@ logout(): void{
 getToken(): string | null{
   return localStorage.getItem('token');
 }
+
+ // Add a method to set the username
+ setUsername(username: string) {
+  this.username = username;
+}
+
+// Add a method to get the username
+getUsername() {
+  return this.username;
+}
+
 }

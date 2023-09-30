@@ -1,0 +1,29 @@
+<div class="d-flex justify-content-between">
+    <button class="btn" ><i class="bi bi-arrow-left-circle" style="font-size: 2rem; color: cornflowerblue;" routerLink="/AdminDashboard/moviefetched"></i> </button>
+  </div>
+
+
+   
+
+  <div class="container mt-5 px-2">
+    <div class="row">
+     <div class="col-3" *ngFor="let ticket of bookedTickets">
+ 
+         <div class="card mb-4" style="width: 18rem; height: 13rem;">
+             <div class="card-body">
+               <h5 class="card-title text-center">User: {{ticket.name}}</h5>
+               <h6 class="card-text">Email: {{ticket.username}}</h6>
+               <h6 class="card-text">Movie Name: {{ticket.moviename}}</h6>
+               <h6 class="card-text">Screen: {{ticket.screen}}</h6>
+               <h6 class="card-text">Time:{{ticket.time}}</h6>
+               <h6 class="card-text">Seat Number:{{ticket.seat_number}}</h6>
+               
+             
+               
+             
+             </div>
+           </div>
+     </div>
+    </div>
+  </div>
+  

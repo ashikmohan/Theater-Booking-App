@@ -24,6 +24,8 @@ onSubmit(form: NgForm) {
     formData.append('languages', form.value.languages);
     formData.append('cast', form.value.cast);
     formData.append('description', form.value.description);
+    formData.append('time', form.value.time);
+    formData.append('screen', form.value.screen);
     formData.append('rates', form.value.rates);
     formData.append('seats', form.value.seats);
     formData.append('image', this.selectedFile);

@@ -10,8 +10,10 @@
             <img [src]="imageSrc" class="card-img-top" alt="{{ movie.moviename }}"><br><br><br><br>
             <h5 class="card-title">{{ movie.moviename }}</h5><br><br>
 
-            <h6 class="card-text1"><strong>Category:</strong> {{ movie.category }}</h6><br><br><br>
+            <h6 class="card-text1"><strong>Category:</strong> {{ movie.category }}</h6><br><br>
             <h6 class="card-text2"><strong>Languages:</strong> {{ movie.languages }}</h6><br><br>
+            <h6 class="card-text2"><strong>Movie Time:</strong> {{ movie.time }}</h6><br><br>
+            <h6 class="card-text2"><strong>Screen:</strong> {{ movie.screen }}</h6><br><br>
             <div class="button-container">
               <a routerLink="/UserDashboard/ticketbooking/{{movie._id}}" class="button">Book Now</a>
             </div>

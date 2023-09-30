@@ -46,6 +46,15 @@ const addMoviesSchema=mongoose.Schema({
         type:String,
         required:true
     },
+    time:{
+      type:String,
+      required:true
+    },
+    screen:{
+      type:String,
+      required:true
+    }
+    ,
     rates:{
         type:Number,
         required:true
@@ -87,21 +96,37 @@ const reviewSchema = mongoose.Schema({
     },
   });
 
-  const bookingSchema = new mongoose.Schema({
+  const bookingSchema =  mongoose.Schema({
     movieId: {
       type: mongoose.Schema.Types.ObjectId,
       ref: 'movies', // Reference to the Movie model
       required: true,
     },
-    // username: {
-    //   type: mongoose.Schema.Types.ObjectId,
-    //   ref:'MovieBox',
-    //   required: true,
-    // },
     seat_number: {
       type: [],
       required: true,
     },
+    username: { // Add this field to store the email
+      type: String,
+      required: true,
+    },
+    name: { // Add this field to store the email
+      type: String,
+      required: true,
+    },
+    moviename:{
+      type:String,
+      required:true
+  },
+  time:{
+    type:String,
+    required:true
+  },
+  screen:{
+    type:String,
+    required:true
+  }
+    
     // Add other relevant fields here
   });
 

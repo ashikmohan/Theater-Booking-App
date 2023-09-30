@@ -13,6 +13,8 @@ import { EditComponent } from './Admin/edit/edit.component';
 import { userGuard } from './user.guard';
 import { adminGuard } from './admin.guard';
 import { TicketbokkingComponent } from './User/ticketbokking/ticketbokking.component';
+import { TicketsComponent } from './Admin/tickets/tickets.component';
+import { MyticketsComponent } from './User/mytickets/mytickets.component';
 const routes: Routes = [
   { path: '', component: HomepageComponent },
   { path: 'login', component: LoginComponent },
@@ -24,7 +26,7 @@ const routes: Routes = [
     component: UserdashboardComponent,
     children: [
       { path: 'usermoviefetched', component: UsermoviefetchedComponent },
-      { path: 'moviedetails/:id', component: MoviedetailsComponent },{path:'ticketbooking/:id',component:TicketbokkingComponent},
+      { path: 'moviedetails/:id', component: MoviedetailsComponent },{path:'ticketbooking/:id',component:TicketbokkingComponent},{path:'mytickets/:user',component:MyticketsComponent},
       { path: '', redirectTo: 'usermoviefetched', pathMatch: 'full' },
     ],
   },
@@ -34,7 +36,7 @@ const routes: Routes = [
     component: AdminDashboardComponent,
     children: [
       { path: 'moviefetched', component: MoviefetchedComponent },
-      { path: 'moviefetched/addmovies', component: AddmoviesComponent },{path:'editdetails/:id',component:EditComponent},
+      { path: 'moviefetched/addmovies', component: AddmoviesComponent },{path:'editdetails/:id',component:EditComponent},{path:'tickets',component:TicketsComponent},
       { path: '', redirectTo: 'moviefetched', pathMatch: 'full' },
     ],
   },

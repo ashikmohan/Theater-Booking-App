@@ -16,6 +16,8 @@ export class EditComponent implements OnInit{
     languages:'',
     cast:'',
     description:'',
+    time:'',
+    screen:'',
     rates:'',
     seats:''
   }
@@ -33,6 +35,8 @@ export class EditComponent implements OnInit{
       this.list.languages=res.data.languages;
       this.list.cast=res.data.cast;
       this.list.description=res.data.description;
+      this.list.time=res.data.time;
+      this.list.screen=res.data.screen;
       this.list.rates=res.data.rates;
       this.list.seats=res.data.seats;
     })

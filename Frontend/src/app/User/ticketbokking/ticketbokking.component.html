@@ -6,8 +6,19 @@
 <div class="container">
    
     <div class="movie-details" *ngIf="movie">
+      <div class="form-group">
+        <label for="moviename">Movie Name:</label>
+        <input type="text" id="moviename" [(ngModel)]="moviename" name="moviename" disabled value="{{movie.moviename}}" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="time">Movie Time:</label>
+        <input type="time" id="time" [(ngModel)]="time" name="time" disabled value="{{movie.time}}"  value="{{movie.time}}" class="form-control" required>
+      </div>
+      <div class="form-group">
+        <label for="screen">Movie Screen:</label>
+        <input type="text" id="screen" [(ngModel)]="screen" name="screen" disabled value="{{movie.screen}}" class="form-control" required>
+      </div>
       
-      <h2 class="text-primary"><strong>{{movie.moviename}}</strong></h2>
     
     </div>
    
@@ -165,9 +176,20 @@
       </div>
     </div>
 
+<br><br>
+<!-- Add an input field for email -->
+<div class="userdetails"  >
 
+<div class="form-group">
+  <label for="username">Email Address:</label>
+  <input type="email" id="username" [(ngModel)]="username" name="username"  class="form-control" required>
+</div>
+<div class="form-group">
+  <label for="name">Name:</label>
+  <input type="name" id="name" [(ngModel)]="name" name="name" class="form-control" required>
+</div>
 
-
+</div>
 
 <div>
 
@@ -177,3 +199,4 @@
     <button class="book-button" type="submit" (click)="bookTicket()">Book Ticket</button>
 
 </div>
+<br><br><br><br>

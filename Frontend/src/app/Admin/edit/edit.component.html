@@ -18,6 +18,14 @@
             <input type="text" id="description" value="{{list.description}}" name="description" [(ngModel)]="list.description" required>
         </div>
         <div class="form-group">
+            <label for="time">Show Time:</label>
+            <input type="time" id="time" value="{{list.time}}"  name="time" [(ngModel)]="list.time" required>
+        </div>
+        <div class="form-group">
+            <label for="screen">Screen:</label>
+            <input type="text" id="screen" value="{{list.screen}}" name="screen"[(ngModel)]="list.screen" required>
+        </div>
+        <div class="form-group">
             <label for="rates">Rates:</label>
             <input type="number" id="rates" value="{{list.rates}}" name="rates" [(ngModel)]="list.rates" required>
         </div>

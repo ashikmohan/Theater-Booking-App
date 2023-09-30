@@ -5,6 +5,7 @@ const path = require('path');
 const fs = require('fs');
 const jwt = require('jsonwebtoken');
 const secretKey = 'MovieBox';
+const nodemailer = require('nodemailer');
 
 router.use(express.json());
 router.use(express.urlencoded({extended:true}));
@@ -17,9 +18,44 @@ const storage = multer.memoryStorage();
 
 const upload=multer({storage:storage})
 
-const authenticateUser=require('../Auth/auth')
+
 
 const {usersSignUpData,AddmoviesSchema,Review,Rating,Booking}=require('../model/schema');
+
+
+function verifytoken(req,res,next){
+  try{
+    if(!req.headers.authorization) throw 'Unauthorized: Token is missing';
+    let token=req.headers.authorization.split('Bearer ')[1];
+    if(!token) throw 'Unauthorized: Token is missing';
+    let data =jwt.verify(token,secretKey);
+    if(!data) throw 'Unauthorized: Token is invalid';
+   
+    console.log('Token verified:', data);
+    // res.status(200).send(data);
+    next()
+  }catch (error){
+    res.status(401).send({error});
+  }
+}
+
+
+
+
+
+
+
+const transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: 'ashikmohan3992@gmail.com', // Your email address
+    pass: 'uppjyfwwmwvciphz' // Your email password
+  }
+});
+
+
+
+
 
 // signUp
 
@@ -74,6 +110,8 @@ router.post('/addmovies',upload.single('image'),async(req,res)=>{
             languages,
             cast,
             description,
+            time,
+            screen,
             rates,
             seats,
             
@@ -86,6 +124,8 @@ router.post('/addmovies',upload.single('image'),async(req,res)=>{
             languages,
             cast,
             description,
+            time,
+            screen,
             rates,
             seats,
             image: {
@@ -113,6 +153,7 @@ router.get('/moviefetched',async (req,res)=>{
     }catch(err){
         res.status(500).json({error:'Failed to fetch image'});
     }
+    // console.log(req.headers.authorization)
 });
 
 // get the movie details by id
@@ -130,6 +171,9 @@ router.get('/moviedetails/:id', async (req, res) => {
     }
   });
   
+
+ 
+
 // edit the movie details buy admin
 
 router.put("/editdetails/:id",async (req,res)=>{                               
@@ -187,7 +231,7 @@ router.post('/addreview', async (req, res) => {
   });
   
   // Add a new route to fetch reviews by movie ID
-  router.get('/reviews/:movieId', async (req, res) => {
+  router.get('/reviews/:movieId',verifytoken, async (req, res) => {
     try {
       const movieId = req.params.movieId;
   
@@ -208,10 +252,13 @@ router.post('/addreview', async (req, res) => {
   // Route to book a ticket
 router.post('/bookticket', async (req, res) => {
   try {
-    const { movieId,  seat_number } = req.body;
+    const { movieId,  seat_number ,username,name,moviename,time,screen} = req.body;
+    
+    
+    // const { username, name } = await getUserDetails(req.body.username);
 
     // Check if the seat is available
-    const isSeatAvailable = await checkSeatAvailability(movieId, seat_number);
+    const isSeatAvailable = await checkSeatAvailability(movieId, seat_number,username,name);
 
     if (!isSeatAvailable) {
       return res.status(400).json({ error: 'Seat is not available' });
@@ -220,13 +267,25 @@ router.post('/bookticket', async (req, res) => {
     // Create a new booking
     const booking = new Booking({
       movieId,
-      // username,
       seat_number:seat_number,
+      username:username,
+      name:name,
+      moviename,
+      time,
+      screen,
+      
+      
       // Add other relevant fields here
     });
 
     // Save the booking to MongoDB
     await booking.save();
+
+
+
+
+
+
 
     res.status(201).json({ message: 'Ticket booked successfully' });
   } catch (error) {
@@ -237,12 +296,16 @@ router.post('/bookticket', async (req, res) => {
 
 // Function to check seat availability
 // Function to check seat availability
-async function checkSeatAvailability(movieId, seat_number) {
+async function checkSeatAvailability(movieId, seat_number,username,name,moviename,time,screen) {
   try {
+
+
+    console.log('Checking seat availability for:', movieId, seat_number,username,name,moviename,time,screen);
     // Assuming you have a 'bookings' collection in your MongoDB
     // You can customize this query based on your actual schema
-    const booking = await Booking.findOne({ movieId, seat_number });
-
+    
+    const booking = await Booking.findOne({ movieId, seat_number,username,name});
+    console.log('Booking:', booking);
     // If a booking exists for the specified movie and seat, it's not available
     if (booking) {
       return false;
@@ -250,30 +313,18 @@ async function checkSeatAvailability(movieId, seat_number) {
 
     // If no booking exists, the seat is available
     return true;
+
+
+    
   } catch (error) {
     console.error('Error checking seat availability:', error);
     return false; // Assume the seat is not available in case of an error
   }
 }
 
-// Add a new route to fetch booking details by ID
-router.get('/booking/:id', async (req, res) => {
-  try {
-    const bookingId = req.params.id;
 
-    // Fetch the booking details by ID
-    const booking = await Booking.findById(bookingId);
 
-    if (!booking) {
-      return res.status(404).json({ error: 'Booking not found' });
-    }
 
-    res.status(200).json(booking);
-  } catch (error) {
-    console.error('Error fetching booking details:', error);
-    res.status(500).json({ error: 'Internal server error' });
-  }
-});
 
 
 // Add a new route to get the list of sold seats for a specific movie
@@ -304,6 +355,45 @@ async function getSoldSeatsForMovie(movieId) {
     return []; // Return an empty array in case of an error
   }
 }
+
+
+
+router.get('/booked-tickets', async (req, res) => {
+  try {
+    const bookedTickets = await Booking.find();
+    res.status(200).json(bookedTickets);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch booked tickets' });
+  }
+});
+
+
+
+router.get('/user-tickets/:user', async (req, res) => {
+  try {
+    const user = req.params.user;
+    const userTickets = await Booking.find({username: user });
+    res.status(200).json({data: userTickets});
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch user tickets' });
+  }
+});
+
+router.delete('/deletetickets/:ticketId',async (req,res)=>{
+  try {
+    let ticketId =req.params.ticketId;
+    console.log(ticketId);
+    let deleteTickets =await Booking.findByIdAndRemove(ticketId);
+    res.set('Cache-Control', 'no-store');  
+    if (!deleteTickets) {
+      // Ticket not found
+      return res.status(404).json({ message: 'Ticket not found' });
+    }
+    res.status(200).json({ message: 'Ticket deleted successfully' });
+  } catch (error) {
+    res.status(400).json({ message: "DELETE request CANNOT be completed" });       
+  }
+})
 
 
 module.exports=router;
