@@ -82,3 +82,30 @@
     margin-right: 10px;
     color: red;
   }
+
+   
+  .search-bar {
+    display: flex;
+    align-items: center;
+    margin-bottom: 50px;
+    margin-top: 30px;
+    margin-left: 38%;
+    
+  }
+  
+  .search-bar input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    width: 35%;
+    box-shadow: none;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .search-bar input:focus {
+    outline: none;
+    border-color: #007bff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  }
+  

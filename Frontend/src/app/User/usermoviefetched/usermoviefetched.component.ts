@@ -13,7 +13,7 @@ export class UsermoviefetchedComponent {
   list:any[]=[];
   // movies: any[] = [];
   userId: string | null = null;
-  
+  searchMovie:string=''
   constructor(private router:Router,private addmovie:AddmovieService,private route: ActivatedRoute,private fetching:MoviefetchingService,private rating:RatingService){}
   ngOnInit(){
     

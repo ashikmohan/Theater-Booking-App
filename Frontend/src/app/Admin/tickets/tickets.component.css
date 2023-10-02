@@ -4,7 +4,7 @@
 /* Custom card styles */
 .card {
   background-color: #c1b6b3;
-  background-image: url('/assets/Yk96hN.jpg');
+  background-image: url('/assets/luxa.org-opacity-changed-Yk96hN.jpg');
   background-size: cover;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -20,7 +20,7 @@
 .card-title {
   font-size: 18px;
   font-weight: bold;
-  color: #f9f9f9;
+  color: #f8f8f8;
 }
 
 .card-text {

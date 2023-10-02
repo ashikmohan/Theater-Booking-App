@@ -1,6 +1,6 @@
 /* Navbar styles */
 .navbar {
-    background-color: #3498db; /* Change this to your desired background color */
+    background-color: #3498db; 
   }
   
   .navbar-brand {
@@ -20,6 +20,6 @@
   
   .navbar-nav .nav-link:hover {
     background-color: #2980b9; /* Change the background color on hover */
-    border-radius: 5px; /* Add a slight border-radius for a rounded look */
+    border-radius: 15px; /* Add a slight border-radius for a rounded look */
   }
   

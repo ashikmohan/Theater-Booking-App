@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class MoviefetchedComponent {
   list:any[]=[]
-
+  searchMovie:string=''
   constructor(private router:Router,private addmovie:AddmovieService,private fetching:MoviefetchingService,private rating:RatingService){}
 
   ngOnInit(){
