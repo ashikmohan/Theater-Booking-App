@@ -114,6 +114,7 @@ router.post('/addmovies',upload.single('image'),async(req,res)=>{
             rates,
             seats,
             
+            
         } = req.body;
 
         // Create a new instance of the Mongoose model

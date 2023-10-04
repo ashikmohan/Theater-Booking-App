@@ -19,7 +19,8 @@ export class EditComponent implements OnInit{
     time:'',
     screen:'',
     rates:'',
-    seats:''
+    seats:'',
+    
   }
 
   constructor(private fetching:MoviefetchingService,private router:Router,private activatedRoute:ActivatedRoute){}
@@ -39,6 +40,7 @@ export class EditComponent implements OnInit{
       this.list.screen=res.data.screen;
       this.list.rates=res.data.rates;
       this.list.seats=res.data.seats;
+      
     })
     
   }

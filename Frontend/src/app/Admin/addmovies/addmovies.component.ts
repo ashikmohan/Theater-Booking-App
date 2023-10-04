@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AddmovieService } from 'src/app/addmovie.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-addmovies',
@@ -33,12 +34,14 @@ onSubmit(form: NgForm) {
     this.addmovie.addMovie(formData).subscribe(
       (response) => {
         console.log('Movie added successfully:', response);
+        Swal.fire('Success!', 'Movie added Successfully', 'success');
         this.router.navigate(['/AdminDashboard/moviefetched'])
         // Reset the form
         form.reset();
       },
       (error) => {
         console.error('Error adding movie:', error);
+        Swal.fire('Error!', 'Error adding movie', 'error');
       }
     );
   }
