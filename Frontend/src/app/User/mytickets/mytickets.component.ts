@@ -63,34 +63,6 @@ ngOnInit(): void {
 
 
 
-//   deleteTickets(ticketId:string){
-// this.booking.deletetickets(ticketId).subscribe(
-//   (res:any)=>{
-//     console.log('Ticket deleted sucessfully')
-//     Swal.fire({
-//       title: 'Are you sure?',
-//       text: "You won't be able to revert this!",
-//       icon: 'warning',
-//       showCancelButton: true,
-//       confirmButtonColor: '#3085d6',
-//       cancelButtonColor: '#d33',
-//       confirmButtonText: 'Yes, delete it!'
-//     }).then((result) => {
-//       if (result.isConfirmed) {
-//         Swal.fire(
-//           'Deleted!',
-//           'Your file has been deleted.',
-//           'success'
-//         )
-//       }
-//     })
-//     this.router.navigate(['/UserDashboard/usermoviefetched']);
-//   },
-//   (error: any) => {
-//     console.error('Error deleting ticket:', error);
-//   }
-// )
-//   }
 
 
 deleteTickets(ticketId: string) {

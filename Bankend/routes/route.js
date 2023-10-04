@@ -308,7 +308,7 @@ transporter.sendMail(mailOptions, (error, info) => {
   }
 });
 
-// Function to check seat availability
+
 // Function to check seat availability
 async function checkSeatAvailability(movieId, seat_number,username,name,moviename,time,screen) {
   try {

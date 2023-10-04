@@ -44,20 +44,7 @@ ngOnInit(): void {
       console.log(this.movie);
       this.movie=response.data
       console.log('Movie Data:', this.movie);
-      // convert the binary image data to safeurl
-
-      // if(this.movie && this.movie.image && this.movie.image.data){
-      //   const binaryData = this.movie.image.data;
-      //     const base64String = btoa(
-      //       new Uint8Array(binaryData).reduce(
-      //         (data, byte) => data + String.fromCharCode(byte),
-      //         ''
-      //       )
-      //     );
-      //     const imageUrl = `data:image/jpeg;base64,${base64String}`;
-      //     this.safeImageUrl = this.sanitizer.bypassSecurityTrustUrl(imageUrl);
-          
-      // }
+      
 
 
       
@@ -111,25 +98,6 @@ addReview() {
   }
 }
 
-// rateMovie() {
-//   if (this.userRating && this.movie._id) {
-//     const userId = 'exampleUserId'; // Replace with the actual user ID if available
-//     this.rating.rateMovie(this.movie._id,  this.userRating).subscribe(() => {
-//       // Update the average rating after rating
-//       this.fetchAverageRating();
-//       this.userRating = undefined; // Clear the user rating input
-//     });
-//   }
-// }
-
-// fetchAverageRating() {
-//   if (this.movie && this.movie._id) {
-//     this.rating.getAverageRating(this.movie._id).subscribe((response) => {
-//       this.averageRating = response.averageRating;
-//     });
-//   }
-// }
- 
 
 }
 

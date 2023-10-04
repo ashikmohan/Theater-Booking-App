@@ -44,16 +44,7 @@ ngOnInit(): void {
       console.log(this.movie);
       this.movie=response.data
     
-    // this.authserve.getuserById(this.userId).subscribe((userResponse)=>{
-    //   console.log(this.user);
-    //   this.user=userResponse.data
-    //   this.username = this.user.username;
-    //       this.name = this.user.name;
-    // },
-    // (error) => {
-    //   console.error('Error fetching user details:', error);
-    //   // Handle the error (e.g., display an error message)
-    // })
+
     
     })
     

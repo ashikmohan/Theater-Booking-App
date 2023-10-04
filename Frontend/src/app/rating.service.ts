@@ -13,14 +13,7 @@ export class RatingService {
 
   constructor(private http:HttpClient) { }
 
-  // rateMovie(movieId: string, rating: number): Observable<any> {
-  //   const body = {  movieId, rating };
-  //   return this.http.post(`${this.apiUrl}/addrating`, body);
-  // }
-
-  // getAverageRating(movieId: string): Observable<any> {
-  //   return this.http.get(`${this.apiUrl}/averagerating/${movieId}`);
-  // }
+  
   
   rateMovie(movieId: string, rating: number) {
     if (!this.ratings[movieId]) {
