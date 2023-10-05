@@ -69,11 +69,7 @@ delete(id:any){
         )
       }
     })
-    // this.addmovie.getMovies().subscribe((res:any[])=>{
-    //   this.router.navigate(['/AdminDashboard/moviefetched'])
-    //   this.list = res.data
-      
-    // })
+   
    
     this.addmovie.getMovies().subscribe((res:any[])=>{
       console.log('Movies fetched:', res);

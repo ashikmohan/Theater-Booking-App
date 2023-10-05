@@ -21,19 +21,7 @@ ngOnInit(): void {
 
   this.username = this.authserve.getUsername();
 
-  //  if (this.username) {
-  //   this.booking.getUserTickets(this.username).subscribe(
-  //     (res: any) => {
-  //       this.usertickets = res.data;
-  //       console.log('fetching user tickets')
-  //       this.isLoading = false;
-  //     },
-  //     (error: any) => {
-  //       console.error('Error fetching user tickets:', error);
-  //       this.isLoading = false;
-  //     }
-  //   );
-  //   }
+ 
 
   if (this.username) {
     // Check if the data is already cached

@@ -153,7 +153,7 @@ router.get('/moviefetched',async (req,res)=>{
     }catch(err){
         res.status(500).json({error:'Failed to fetch image'});
     }
-    // console.log(req.headers.authorization)
+  
 });
 
 // get the movie details by id
@@ -254,8 +254,6 @@ router.post('/bookticket', async (req, res) => {
   try {
     const { movieId,  seat_number ,username,name,moviename,time,screen} = req.body;
     
-    
-    // const { username, name } = await getUserDetails(req.body.username);
 
     // Check if the seat is available
     const isSeatAvailable = await checkSeatAvailability(movieId, seat_number,username,name);
@@ -275,7 +273,6 @@ router.post('/bookticket', async (req, res) => {
       screen,
       
       
-      // Add other relevant fields here
     });
 
     // Save the booking to MongoDB

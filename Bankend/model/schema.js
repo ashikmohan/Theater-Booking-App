@@ -106,11 +106,11 @@ const reviewSchema = mongoose.Schema({
       type: [],
       required: true,
     },
-    username: { // Add this field to store the email
+    username: { 
       type: String,
       required: true,
     },
-    name: { // Add this field to store the email
+    name: { 
       type: String,
       required: true,
     },
@@ -127,7 +127,6 @@ const reviewSchema = mongoose.Schema({
     required:true
   }
     
-    // Add other relevant fields here
   });
 
 

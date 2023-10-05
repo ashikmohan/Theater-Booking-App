@@ -14,7 +14,7 @@ import { AuthserveService } from './authserve.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { AdminDashboardComponent } from './Admin/admin-dashboard/admin-dashboard.component';
 import { UserdashboardComponent } from './User/userdashboard/userdashboard.component';
-import { NavdComponent } from './navd/navd.component';
+
 import { AddmoviesComponent } from './Admin/addmovies/addmovies.component';
 import { MoviefetchedComponent } from './Admin/moviefetched/moviefetched.component';
 import { AddmovieService } from './addmovie.service';
@@ -45,7 +45,6 @@ import { SearchPipe } from './search.pipe';
     SignupComponent,
     AdminDashboardComponent,
     UserdashboardComponent,
-    NavdComponent,
     AddmoviesComponent,
     MoviefetchedComponent,
     UsermoviefetchedComponent,

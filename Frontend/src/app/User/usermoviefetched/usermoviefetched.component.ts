@@ -34,8 +34,6 @@ export class UsermoviefetchedComponent {
       
       
       
-      // console.log('List of movies:', this.list);
-      // console.log('Image Data URL:', this.list[0].image);
 
     },
     (error)=>{
