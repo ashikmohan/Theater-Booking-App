@@ -19,6 +19,7 @@
 
 p {
     line-height: 1.6;
+    font-size: 19px;
 }
 
 /* About Us Styles */
@@ -36,16 +37,18 @@ p {
 .legacy-section {
     margin-top: 30px;
     text-align: left;
+    
 }
 
 .legacy-heading {
-    font-size: 20px;
+    font-size: 23px;
     color: #111111;
 }
 
 .legacy-content {
     margin-top: 10px;
-    font-size: 16px;
+    font-size: 19px;
+    font-weight: 400;
 }
 
 .features-section {
@@ -54,12 +57,14 @@ p {
 }
 
 .features-heading {
-    font-size: 20px;
+    font-size: 23px;
     color: #121111;
 }
 
 .feature-item {
     margin-top: 10px;
+    font-size: 19px;
+    font-weight: 400;
 }
 
 .feature-item i {
@@ -74,13 +79,15 @@ p {
 }
 
 .contact-heading {
-    font-size: 20px;
+    font-size: 23px;
     color: #1c1b1b;
 }
 
 .contact-info {
     margin-top: 10px;
-    font-size: 16px;
+    
+    font-size: 19px;
+    font-weight: 400;
 }
 .maps{
     float: right;
